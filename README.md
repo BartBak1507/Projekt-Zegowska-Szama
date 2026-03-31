@@ -1,7 +1,7 @@
 # Projekt-Zegowska-Szama
 
 
-Projekt stronyinternetowej sklepiku szkolnego "Zegowska Szama". Umożliwiającego zalogowanie i zakup towarów online
+Projekt strony internetowej sklepiku szkolnego "Zegowska Szama". Umożliwiającego zalogowanie i zakup towarów online
 
 
 
