@@ -1,0 +1,57 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #04050D;
+    width: 100vw;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+}
+
+header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #910000;
+}
+
+header img{
+    width: 25vw;
+    /* 950px szerokości logo zaczyna być freaky */
+}
+
+.profileIcon{
+    width: 12%;
+}
+
+/* dla mniejszych monitorów */
+@media(max-width: 1800px){
+
+    header img{
+        width: 42vw;
+    }
+}
+
+/* dla tabletów */
+@media(max-width: 1000px){
+    
+    header img{
+        width: 50vh;
+    }
+}
+
+/* dla telefonów */
+@media(max-width: 440px){
+    
+    header img{
+        width: 100vw;
+    }
+}
