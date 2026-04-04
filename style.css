@@ -4,14 +4,13 @@ body{
     background-color: #04050D;
     width: 100vw;
 }
-
+/* login */
 main{
     display: flex;
     flex-direction: column;
     width: 100%;
     justify-content: center;
     align-items: center;
-
     color: white;
 }
 
@@ -25,12 +24,78 @@ header{
 
 header img{
     width: 25vw;
-    /* 950px szerokości logo zaczyna być freaky */
 }
 
 .profileIcon{
-    width: 12%;
+    width: 12vw;
 }
+
+h1{
+    font-size: 300%;
+    padding: 30px;
+}
+
+form input{
+    width: 30vw;
+    height: 100px;
+    padding-left: 10px;
+    margin: 10px;
+    background-color: #181b27;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    box-shadow: none;
+    font-size: 180%;
+}
+
+form input[type = 'submit']{
+    background-color: #910000;
+    font-weight: bold;
+}
+
+form input[type = 'checkbox']{
+   display: inline;
+    height: 30px;
+    width: 30px;
+}
+
+ a{
+    text-decoration: none;
+    color: gray;
+    display: block;
+    text-align: right;
+    display: inline;
+    font-size: 110%;
+}
+
+.linkCenter{
+    display: block;
+    text-align: center;
+}
+
+.linkForgot{
+    padding-left: 20px;
+}
+
+
+
+span{
+    color: #910000;
+}
+
+
+
+/* login koniec */
+
+
+/* register */
+
+
+
+/* register koniec */
+
+
+
 
 /* dla mniejszych monitorów */
 @media(max-width: 1800px){
@@ -38,6 +103,17 @@ header img{
     header img{
         width: 42vw;
     }
+
+    .profileIcon{
+        width: 15vw;
+    }
+
+    form input{
+        width: 50vh;
+        height: 90px;
+        font-size: 160%;
+    }
+
 }
 
 /* dla tabletów */
@@ -46,6 +122,18 @@ header img{
     header img{
         width: 50vh;
     }
+
+    .profileIcon{
+        width: 25vw;
+    }
+
+    form input{
+        width: 60vw;
+        height: 80px;
+        font-size: 120%;
+    }
+
+
 }
 
 /* dla telefonów */
@@ -54,4 +142,25 @@ header img{
     header img{
         width: 100vw;
     }
+
+    .profileIcon{
+    width: 35vw;
+    }
+
+    form input{
+        width: 80vw;
+        height: 40px;
+        font-size: 100%;
+    }
+
+
+    .inlineP{
+        font-size: 70%;
+    }
+
+    h1{
+        font-size: 200%;
+        padding: 20px;
+    }
+
 }
