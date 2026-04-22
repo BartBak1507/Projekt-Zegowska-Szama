@@ -1,0 +1,197 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #04050D;
+    width: 100vw;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #910000;
+}
+
+header img{
+    width: 25vw;
+}
+
+.loginOrRegister{
+    background-color: #2a2a2c;
+    margin-top: -20px;
+    padding: 40px;
+    border-radius: 15px;
+}
+
+.loginOrRegisterBtn{
+    color: white;
+    font-weight: lighter;
+    background-color: #910000;
+    padding: 15px 40px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 200%;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+.loginOrRegisterBtn:active{
+    background-color: #2a2a2c;
+    color: #910000;
+}
+
+.searchFor{
+    background-color: #2a2a2c;
+    margin-top: 20px;
+    padding: 40px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.searchFor img{
+    width: 10%;
+}
+
+.searchFor input{
+    width: 80%;
+    padding: 5px;
+    border: none;
+    background-color: #2a2a2c;
+    font-size: 150%;
+    color: white;
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+.searchFor input:focus{
+    outline: none;
+    text-align: center;       
+    box-shadow: 0 0 10px #910000; 
+}
+
+.scrollable{ /* główny obszar skrollowania ustawiony pionowo */
+    width: 90%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.scrollable::-webkit-scrollbar{
+    display: none;
+}
+
+.horizontalScroll{ /* Div-y w środku sekcji służące do skrollowania ustawione poziomo  */
+    display: flex;             
+    overflow-x: auto;          
+    white-space: nowrap;       
+    gap: 35px;                 
+    padding: 10px;
+}
+
+/* Główny kontener paska */
+.horizontalScroll::-webkit-scrollbar {
+    height: 18px; /* Wysokość dla scrolla poziomego */
+}
+
+/* Tło paska (tor) */
+.horizontalScroll::-webkit-scrollbar-track {
+    background: #1a1a1a; /* Bardzo ciemny szary, prawie czarny */
+    border-radius: 10px;
+}
+
+/* Suwak (to co przesuwasz) */
+.horizontalScroll::-webkit-scrollbar-thumb {
+    background: #444; /* Ciemniejszy szary w spoczynku */
+    border-radius: 10px;
+    border: 2px solid #1a1a1a; /* Tworzy efekt odstępu od krawędzi toru */
+}
+
+/* Suwak po najechaniu myszką */
+.horizontalScroll::-webkit-scrollbar-thumb:hover {
+    background: #910000; /* Twoja czerwień z przycisków! */
+}
+
+section .sectionName{ /* Paragraf opisujący każdą sekcje */
+    font-size: 300%;
+    font-weight: bold;
+}
+
+.scrollItem{  /* Pojedyńcze elementy na liście do skrollowania poziomego */
+    height: 500px;
+    background-color: #2a2a2c;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items:end;
+}
+.scrollItem img{
+    width: 250px;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.scrollItem p{
+    margin: 30px;
+    font-size: 170%;
+}
+
+.scrollItem button{
+    padding: 5% 10%;
+    margin-top: 20%;
+    margin-right: 5%;
+    border-radius: 30px;
+    font-size: 250%;
+    font-weight: bolder;
+    color: white;
+    background-color: #910000;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.scrollItem button:active{
+    background-color: white;
+    color: #910000;
+}
+
+/* dla mniejszych monitorów */
+@media(max-width: 1800px){
+
+    header img{
+        width: 42vw;
+    }
+
+}
+
+/* dla tabletów */
+@media(max-width: 1000px){
+    
+    header img{
+        width: 50vh;
+    }
+
+
+}
+
+/* dla telefonów */
+@media(max-width: 440px){
+    
+    header img{
+        width: 100vw;
+    }
+
+
+}
