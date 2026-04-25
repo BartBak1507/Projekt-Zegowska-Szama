@@ -2,7 +2,7 @@ body{
     margin: 0;
     padding: 0;
     background-color: #04050D;
-    width: 100vw;
+    width: 100%;
 }
 
 main{
@@ -70,6 +70,7 @@ header img{
     width: 80%;
     padding: 5px;
     border: none;
+    border-radius: 10px;
     background-color: #2a2a2c;
     font-size: 150%;
     color: white;
@@ -131,6 +132,10 @@ section .sectionName{ /* Paragraf opisujący każdą sekcje */
     font-weight: bold;
 }
 
+section{ /* sekcje z paragrafami z nazwą sekcji oraz produktami w horizontalscrollu */
+    margin: 2%;
+}
+
 .scrollItem{  /* Pojedyńcze elementy na liście do skrollowania poziomego */
     height: 500px;
     background-color: #2a2a2c;
@@ -166,6 +171,51 @@ section .sectionName{ /* Paragraf opisujący każdą sekcje */
     background-color: white;
     color: #910000;
 }
+
+.resizeImg{
+    max-width: 50%;
+    border-radius: 10px;
+}
+
+footer{
+    width: 100%;
+    background-color: #2a2a2c;
+    height: 20vh;
+    color: white;
+    font-size: 150%;
+}
+
+footer a{
+    text-decoration: none;
+    color: white;
+}
+
+footer span{
+    font-weight: bold;
+    color: #910000;
+}
+
+.supportMain{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 50%;
+}
+
+.help, .support{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.support{
+    border-left: 2px #1d1f28 dashed;
+}
+
+
 
 /* dla mniejszych monitorów */
 @media(max-width: 1800px){
