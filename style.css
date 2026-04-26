@@ -2,7 +2,7 @@ body{
     margin: 0;
     padding: 0;
     background-color: #04050D;
-    width: 100vw;
+    width: 100%;
 }
 /* login */
 main{
@@ -85,14 +85,63 @@ span{
 
 
 
-/* login koniec */
+.regulations {  /* sekcja z regulaminem, polityką praywatności itd*/
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    line-height: 1.6; 
+    color: #e0e0e0;
+}
 
+.regulations h1, .regulations h3 {
+    color: #910000; 
+}
 
-/* register */
+.regulations hr {
+    border: 1px solid #2a2a2c;
+    margin: 20px 0;
+}
 
+.regulations ol {
+    padding-left: 20px;
+}
 
+.mailBtn{
+color: white;
+    font-weight: lighter;
+    background-color: #910000;
+    
+    /* 1. Używamy 'vw' (viewport width) dla czcionki, ale z funkcją clamp */
+    /* clamp(minimum, preferowana, maksimum) - dzięki temu nie będzie ani za mały, ani za wielki */
+    font-size: clamp(0.9rem, 3.5vw, 1.8rem); 
+    
+    /* 2. Padding w 'em' uzależnia odstępy od wielkości tekstu */
+    padding: 0.8em 1.5em; 
+    
+    border-radius: 15px;
+    text-decoration: none;
+    margin: 5px;
+    transition: all 0.3s ease;
+    
+    /* 3. Klucz do sukcesu: ograniczamy szerokość do 90% ekranu i pozwalamy zawijać tekst */
+    display: inline-block;
+    max-width: 90%; 
+    word-break: break-all; /* Gdyby mail był za długi, złamie go do nowej linii */
+    box-sizing: border-box;
 
-/* register koniec */
+    white-space: nowrap; 
+    
+    /* Ale żeby nie wystawał poza ekran, dodajemy bezpiecznik */
+    max-width: 95%;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mailBtn:active{
+    background-color: #2a2a2c;
+    color: #910000;
+}
 
 
 
