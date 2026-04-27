@@ -105,25 +105,25 @@ header img{
 }
 
 /* Główny kontener paska */
-.horizontalScroll::-webkit-scrollbar {
+.horizontalScroll::-webkit-scrollbar, body::-webkit-scrollbar {
     height: 18px; /* Wysokość dla scrolla poziomego */
 }
 
 /* Tło paska (tor) */
-.horizontalScroll::-webkit-scrollbar-track {
+.horizontalScroll::-webkit-scrollbar-track, body::-webkit-scrollbar-track {
     background: #1a1a1a; /* Bardzo ciemny szary, prawie czarny */
     border-radius: 10px;
 }
 
 /* Suwak (to co przesuwasz) */
-.horizontalScroll::-webkit-scrollbar-thumb {
+.horizontalScroll::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
     background: #444; /* Ciemniejszy szary w spoczynku */
     border-radius: 10px;
     border: 2px solid #1a1a1a; /* Tworzy efekt odstępu od krawędzi toru */
 }
 
 /* Suwak po najechaniu myszką */
-.horizontalScroll::-webkit-scrollbar-thumb:hover {
+.horizontalScroll::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:hover {
     background: #910000; /* Twoja czerwień z przycisków! */
 }
 
@@ -168,7 +168,8 @@ section{ /* sekcje z paragrafami z nazwą sekcji oraz produktami w horizontalscr
 }
 
 .scrollItem button:active{
-    background-color: white;
+    background-color: #2a2a2c;
+    border: 1px #910000 solid;
     color: #910000;
 }
 
@@ -180,14 +181,14 @@ section{ /* sekcje z paragrafami z nazwą sekcji oraz produktami w horizontalscr
 footer{
     width: 100%;
     background-color: #2a2a2c;
-    height: 20vh;
+    height: 30vh;
     color: white;
     font-size: 150%;
 }
 
 footer a{
     text-decoration: none;
-    color: white;
+    color:#5f5f5f;
 }
 
 footer span{
@@ -195,24 +196,65 @@ footer span{
     color: #910000;
 }
 
-.supportMain{
+.supportMain{ /* sekcja regulamin, kontakt itd ze stopki */
     display: flex;
     flex-direction: row;
     width: 100%;
     height: 50%;
 }
 
-.help, .support{
+.help, .support{ /* klasy ze stopki */
     width: 50%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-bottom: 1px #5f5f5f solid;
 }
 
 .support{
-    border-left: 2px #1d1f28 dashed;
+    border-left: 1px #5f5f5f solid;
+}
+
+.payment{ /* sekcja metody płatnosci ze stopki */
+    height: 25%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8%;
+}
+
+.paymentImg{  /* klasa obrazków z metodami płattności */
+    width: 5vw;
+    margin-bottom: -15px;
+}
+
+.rights{ /* sekcja 'wszelkie prawa zastrzeżone 🤓' ze stopki */
+    height: 25%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 75%;
+    gap: 1px;
+    margin-bottom: -15px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.rights .dimP{
+    color: #5f5f5f;
+    font-weight: lighter;
+    margin-top: -5px;
+}
+
+.rights hr{
+    height: 10px;
+    width: 100%;
 }
 
 
