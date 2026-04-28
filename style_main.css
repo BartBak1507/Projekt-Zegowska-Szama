@@ -89,7 +89,7 @@ header img{
     overflow: auto;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 0px;
 }
 
 .scrollable::-webkit-scrollbar{
@@ -132,17 +132,18 @@ section{ /* sekcje z paragrafami z nazwą sekcji oraz produktami w horizontalscr
 }
 
 section .sectionName{ /* Paragraf opisujący każdą sekcje */
-    font-size: 300%;
-    font-weight: bold;
+    font-size: 260%;
+    font-weight: 400;
 }
 
 .sectionName img{ /* te hipki jak z maka */
-    width: 10%;
+    width: 7%;
 }
 
 
 .scrollItem{  /* Pojedyńcze elementy na liście do skrollowania poziomego */
-    height: 500px;
+    height: 450px;
+    width: 225px;
     background-color: #2a2a2c;
     border-radius: 20px;
     display: flex;
@@ -150,22 +151,22 @@ section .sectionName{ /* Paragraf opisujący każdą sekcje */
     align-items:end;
 }
 .scrollItem img{
-    width: 250px;
+    width: 225px;
     border-radius: 20px 20px 0px 0px;
 }
 
 .scrollItem p{
-    margin: 30px;
-    font-size: 170%;
+    margin: 22px;
+    font-size: 150%;
 }
 
 .scrollItem button{
-    padding: 5% 11%;
-    margin-top: 20%;
-    margin-right: 5%;
+    padding: 5% 12%;
+    margin-top: 22%;
+    margin-right: 6%;
     padding-bottom: 6%;
-    border-radius: 30px;
-    font-size: 250%;
+    border-radius: 25px;
+    font-size: 220%;
     font-weight: bolder;
     color: white;
     background-color: #910000;
@@ -180,14 +181,15 @@ section .sectionName{ /* Paragraf opisujący każdą sekcje */
 }
 
 .resizeImg{
-    max-width: 50%;
+    max-width: 80%;
     border-radius: 10px;
+    margin: 2%;
 }
 
 footer{
     width: 100%;
     background-color: #2a2a2c;
-    height: 30vh;
+    height: 25vh;
     color: white;
     font-size: 150%;
 }
@@ -230,11 +232,11 @@ footer span{
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 8%;
+    gap: 6%;
 }
 
 .paymentImg{  /* klasa obrazków z metodami płattności */
-    width: 5vw;
+    width: 4vw;
     margin-bottom: -5px;
 }
 
@@ -255,7 +257,8 @@ footer span{
 .rights .dimP{
     color: #5f5f5f;
     font-weight: lighter;
-    margin-top: -5px;
+    margin-top: -10px;
+    padding-bottom: 10px;
 }
 
 .rights hr{
@@ -273,65 +276,42 @@ footer span{
     }
 
     .scrollItem{  /* Pojedyńcze elementy na liście do skrollowania poziomego */
-        height: 400px;
-        width: 200px;
-        background-color: #2a2a2c;
-        border-radius: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items:end;
+        height: 350px;
+        width: 175px;
     }
     .scrollItem img{
-        width: 200px;
-        border-radius: 20px 20px 0px 0px;
+        width: 175px;
     }
 
     .scrollItem p{
-        margin: 24px;
+        margin: 20px;
         font-size: 135%;
     }
 
     .scrollItem button{
         padding: 5% 12%;
         margin-top: 16%;
-        margin-right: 4%;
-        font-size: 200%;
+        margin-right: 5%;
+        font-size: 190%;
         padding-bottom: 6%;
-        border-radius: 24px;
-        font-weight: bolder;
-        color: white;
-        background-color: #910000;
-        border: none;
-        transition: all 0.2s ease;
+        border-radius: 22px;
     }
 
     .loginOrRegister{
-        background-color: #2a2a2c;
         margin-top: -20px;
         padding: 30px 20px;
-        border-radius: 15px;
     }
 
     .loginOrRegisterBtn{
-        color: white;
-        font-weight: lighter;
-        background-color: #910000;
         padding: 15px 40px;
-        border-radius: 15px;
-        text-decoration: none;
         font-size: 150%;
         margin: 5px;
-        transition: all 0.3s ease;
     }
 
     .searchFor{
-        background-color: #2a2a2c;
         margin-top: 20px;
         padding: 25px;
         border-radius: 15px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         gap: 15px;
     }
 
@@ -342,56 +322,40 @@ footer span{
     .searchFor input{
         width: 80%;
         padding: 5px;
-        border: none;
-        border-radius: 10px;
-        background-color: #2a2a2c;
         font-size: 130%;
-        color: white;
-        text-align: center;
-        transition: all 0.5s ease;
     }
 
     footer{
-        width: 100%;
-        background-color: #2a2a2c;
         height: 25vh;
-        color: white;
         font-size: 125%;
     }
 
     .payment{ /* sekcja metody płatnosci ze stopki */
-        height: 25%;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
         gap: 7%;
     }
 
     .paymentImg{  /* klasa obrazków z metodami płattności */
         width: 5vw;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
     }
 
     .rights{ /* sekcja 'wszelkie prawa zastrzeżone 🤓' ze stopki */
-        height: 25%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        font-size: 70%;
+        font-size: 80%;
         gap: 1px;
         margin-bottom: -5px;
         padding-bottom: 25px;
-        font-weight: bold;
     }
 
     .rights .dimP{
-        color: #5f5f5f;
-        font-weight: lighter;
         margin-top: -10px;
+    }
+
+    section .sectionName{ /* Paragraf opisujący każdą sekcje */
+        font-size: 200%;
+    }
+
+    .sectionName img{ /* te hipki jak z maka */
+        width: 7%;
     }
 
 }
@@ -401,6 +365,90 @@ footer span{
     
     header img{
         width: 50vh;
+    }
+
+    .scrollItem{  /* Pojedyńcze elementy na liście do skrollowania poziomego */
+        height: 300px;
+        width: 150px;
+    }
+    .scrollItem img{
+        width: 150px;
+    }
+
+    .scrollItem p{
+        margin: 20px;
+        font-size: 110%;
+    }
+
+    .scrollItem button{
+        padding: 5% 13%;
+        margin-top: 12%;
+        margin-right: 6%;
+        font-size: 160%;
+        padding-bottom: 6%;
+        border-radius: 20px;
+    }
+
+    .loginOrRegister{
+        margin-top: -20px;
+        padding: 25px 18px;
+    }
+
+    .loginOrRegisterBtn{
+        padding: 10px 30px;
+        font-size: 140%;
+        margin: 5px;
+        border-radius: 10px;
+    }
+
+    .searchFor{
+        margin-top: 15px;
+        padding: 15px;
+        border-radius: 15px;
+        gap: 15px;
+    }
+
+    .searchFor img{
+        width: 7%;
+    }
+
+    .searchFor input{
+        width: 80%;
+        padding: 5px 0px;
+        font-size: 110%;
+    }
+
+    footer{
+        height: 20vh;
+        font-size: 110%;
+    }
+
+    .payment{ /* sekcja metody płatnosci ze stopki */
+        gap: 8%;
+    }
+
+    .paymentImg{  /* klasa obrazków z metodami płattności */
+        width: 6vw;
+        margin-bottom: 15px;
+    }
+
+    .rights{ /* sekcja 'wszelkie prawa zastrzeżone 🤓' ze stopki */
+        font-size: 70%;
+        gap: 0px;
+        margin-bottom: -5px;
+        padding-bottom: 25px;
+    }
+
+    .rights .dimP{
+        margin-top: -10px;
+    }
+
+    section .sectionName{ /* Paragraf opisujący każdą sekcje */
+        font-size: 180%;
+    }
+
+    .sectionName img{ /* te hipki jak z maka */
+        width: 9%;
     }
 
 
