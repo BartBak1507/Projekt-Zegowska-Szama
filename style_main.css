@@ -29,7 +29,7 @@ header img{
 
 .loginOrRegister{
     background-color: #2a2a2c;
-    margin-top: -20px;
+    margin-top: -15px;
     padding: 40px;
     border-radius: 15px;
 }
@@ -54,7 +54,7 @@ header img{
 .searchFor{
     background-color: #2a2a2c;
     margin-top: 20px;
-    padding: 40px;
+    padding: 35px;
     border-radius: 15px;
     display: flex;
     justify-content: center;
@@ -160,9 +160,10 @@ section .sectionName{ /* Paragraf opisujący każdą sekcje */
 }
 
 .scrollItem button{
-    padding: 5% 10%;
+    padding: 5% 11%;
     margin-top: 20%;
     margin-right: 5%;
+    padding-bottom: 6%;
     border-radius: 30px;
     font-size: 250%;
     font-weight: bolder;
@@ -234,7 +235,7 @@ footer span{
 
 .paymentImg{  /* klasa obrazków z metodami płattności */
     width: 5vw;
-    margin-bottom: -15px;
+    margin-bottom: -5px;
 }
 
 .rights{ /* sekcja 'wszelkie prawa zastrzeżone 🤓' ze stopki */
@@ -272,7 +273,8 @@ footer span{
     }
 
     .scrollItem{  /* Pojedyńcze elementy na liście do skrollowania poziomego */
-        height: 500px;
+        height: 400px;
+        width: 200px;
         background-color: #2a2a2c;
         border-radius: 20px;
         display: flex;
@@ -280,26 +282,116 @@ footer span{
         align-items:end;
     }
     .scrollItem img{
-        width: 250px;
+        width: 200px;
         border-radius: 20px 20px 0px 0px;
     }
 
     .scrollItem p{
-        margin: 30px;
-        font-size: 170%;
+        margin: 24px;
+        font-size: 135%;
     }
 
     .scrollItem button{
-        padding: 5% 10%;
-        margin-top: 20%;
-        margin-right: 5%;
-        border-radius: 30px;
-        font-size: 250%;
+        padding: 5% 12%;
+        margin-top: 16%;
+        margin-right: 4%;
+        font-size: 200%;
+        padding-bottom: 6%;
+        border-radius: 24px;
         font-weight: bolder;
         color: white;
         background-color: #910000;
         border: none;
         transition: all 0.2s ease;
+    }
+
+    .loginOrRegister{
+        background-color: #2a2a2c;
+        margin-top: -20px;
+        padding: 30px 20px;
+        border-radius: 15px;
+    }
+
+    .loginOrRegisterBtn{
+        color: white;
+        font-weight: lighter;
+        background-color: #910000;
+        padding: 15px 40px;
+        border-radius: 15px;
+        text-decoration: none;
+        font-size: 150%;
+        margin: 5px;
+        transition: all 0.3s ease;
+    }
+
+    .searchFor{
+        background-color: #2a2a2c;
+        margin-top: 20px;
+        padding: 25px;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .searchFor img{
+        width: 8%;
+    }
+
+    .searchFor input{
+        width: 80%;
+        padding: 5px;
+        border: none;
+        border-radius: 10px;
+        background-color: #2a2a2c;
+        font-size: 130%;
+        color: white;
+        text-align: center;
+        transition: all 0.5s ease;
+    }
+
+    footer{
+        width: 100%;
+        background-color: #2a2a2c;
+        height: 25vh;
+        color: white;
+        font-size: 125%;
+    }
+
+    .payment{ /* sekcja metody płatnosci ze stopki */
+        height: 25%;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 7%;
+    }
+
+    .paymentImg{  /* klasa obrazków z metodami płattności */
+        width: 5vw;
+        margin-bottom: 5px;
+    }
+
+    .rights{ /* sekcja 'wszelkie prawa zastrzeżone 🤓' ze stopki */
+        height: 25%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 70%;
+        gap: 1px;
+        margin-bottom: -5px;
+        padding-bottom: 25px;
+        font-weight: bold;
+    }
+
+    .rights .dimP{
+        color: #5f5f5f;
+        font-weight: lighter;
+        margin-top: -10px;
     }
 
 }
