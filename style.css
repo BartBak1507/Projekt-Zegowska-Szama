@@ -51,13 +51,38 @@ form input{
 form input[type = 'submit']{
     background-color: #910000;
     font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+form input[type = 'submit']:active{
+    background-color: #2a2a2c;
+    color: #910000;
+}
+
+input[type="submit"]:hover {
+    box-shadow: 0px 0px 20px #910000;
 }
 
 form input[type = 'checkbox']{
-   display: inline;
-    height: 30px;
-    width: 30px;
+    appearance: none;
+   display: inline-block;
+    height: 40px;
+    width: 40px;
+    vertical-align: middle;
 }
+
+/* Stan po kliknięciu czekboksa */
+input[type="checkbox"]:checked {
+    background-color: #910000; 
+}
+
+form input[type="checkbox"]:checked::after {
+    content: '\2716';
+    position: absolute;
+    transform: translate(-25%, -5%); 
+}
+
+
 
  a{
     text-decoration: none;
@@ -163,6 +188,15 @@ color: white;
         font-size: 160%;
     }
 
+    form input[type = 'checkbox']{
+        height: 35px;
+        width: 35px;
+    }
+
+    form input[type="checkbox"]:checked::after {
+        transform: translate(-30%, -9%); 
+    }
+
 }
 
 /* dla tabletów */
@@ -182,6 +216,9 @@ color: white;
         font-size: 120%;
     }
 
+    form input[type="checkbox"]:checked::after {
+        transform: translate(-22%, 10%); 
+    }
 
 }
 
@@ -210,6 +247,16 @@ color: white;
     h1{
         font-size: 200%;
         padding: 20px;
+    }
+
+    
+    form input[type = 'checkbox']{
+        height: 30px;
+        width: 30px;
+    }
+
+    form input[type="checkbox"]:checked::after {
+        transform: translate(-24%, 11%); 
     }
 
 }

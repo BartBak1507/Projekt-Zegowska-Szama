@@ -156,7 +156,7 @@ section .sectionName{ /* Paragraf opisujący każdą sekcje */
 }
 
 .scrollItem p{
-    margin: 22px;
+    margin: 22px 40px;
     font-size: 150%;
 }
 
@@ -257,13 +257,14 @@ footer span{
 .rights .dimP{
     color: #5f5f5f;
     font-weight: lighter;
-    margin-top: -10px;
-    padding-bottom: 10px;
+    margin-top: -20px;
+
 }
 
 .rights hr{
     height: 10px;
     width: 100%;
+    color: transparent;
 }
 
 
@@ -289,12 +290,12 @@ footer span{
     }
 
     .scrollItem button{
-        padding: 5% 12%;
+        padding: 5% 13%;
         margin-top: 16%;
         margin-right: 5%;
         font-size: 190%;
         padding-bottom: 6%;
-        border-radius: 22px;
+        border-radius: 20px;
     }
 
     .loginOrRegister{
@@ -367,9 +368,15 @@ footer span{
         width: 50vh;
     }
 
+    .horizontalScroll{ 
+        gap: 25px;                 
+    }
+
     .scrollItem{  /* Pojedyńcze elementy na liście do skrollowania poziomego */
         height: 300px;
         width: 150px;
+        border-radius: 15px;
+        border-radius: 15PX 15px 0px 0px;
     }
     .scrollItem img{
         width: 150px;
@@ -386,7 +393,7 @@ footer span{
         margin-right: 6%;
         font-size: 160%;
         padding-bottom: 6%;
-        border-radius: 20px;
+        border-radius: 15px;
     }
 
     .loginOrRegister{
@@ -429,7 +436,7 @@ footer span{
 
     .paymentImg{  /* klasa obrazków z metodami płattności */
         width: 6vw;
-        margin-bottom: 15px;
+        margin-bottom: 5px;
     }
 
     .rights{ /* sekcja 'wszelkie prawa zastrzeżone 🤓' ze stopki */
@@ -459,6 +466,98 @@ footer span{
     
     header img{
         width: 100vw;
+    }
+
+    .horizontalScroll{ 
+        gap: 18px;                 
+    }
+
+    .scrollItem{  /* Pojedyńcze elementy na liście do skrollowania poziomego */
+        height: 226px;
+        width: 113px;
+        border-radius: 10px;
+    }
+    .scrollItem img{
+        width: 113px;
+        border-radius: 10px 10px 0px 0px;
+    }
+
+    .scrollItem p{
+        margin: 22px 8px;
+        font-size: 95%;
+    }
+
+    .scrollItem button{
+        padding: 5% 12.5%;
+        margin-top: 0%;
+        margin-right: 8%;
+        font-size: 115%;
+        padding-bottom: 6%;
+        border-radius: 12px;
+    }
+
+    .loginOrRegister{
+        margin-top: -15px;
+        padding: 25px 8px;
+    }
+
+    .loginOrRegisterBtn{
+        padding: 10px 30px;
+        font-size: 100%;
+        margin: 5px;
+        border-radius: 10px;
+    }
+
+    .searchFor{
+        margin-top: 15px;
+        padding: 10px 0px;
+        border-radius: 15px;
+        gap: 5px;
+    }
+
+    .searchFor img{
+        width: 9%;
+    }
+
+    .searchFor input{
+        width: 80%;
+        padding: 5px 0px;
+        font-size: 100%;
+    }
+
+    footer{
+        height: 25vh;
+        font-size: 90%;
+    }
+
+    .payment{ /* sekcja metody płatnosci ze stopki */
+        gap: 7%;
+    }
+
+    .paymentImg{  /* klasa obrazków z metodami płattności */
+        width: 7vw;
+        margin-bottom: 5px;
+    }
+
+    .rights{ /* sekcja 'wszelkie prawa zastrzeżone 🤓' ze stopki */
+        font-size: 70%;
+        gap: 0px;
+        margin-bottom: -10px;
+        padding-bottom: 25px;
+    }
+
+    .rights .dimP{
+        margin-top: -10px;
+    }
+
+    section .sectionName{ /* Paragraf opisujący każdą sekcje */
+        margin-top: 15px;
+        margin-bottom: 0px;
+        font-size: 150%;
+    }
+
+    .sectionName img{ /* te hipki jak z maka */
+        width: 25%;
     }
 
 
