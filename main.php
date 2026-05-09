@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="style_main.css">
+    <link rel="stylesheet" href="docking.css">
     <title>Main</title>
 </head>
 <body>
@@ -483,7 +484,7 @@
                 <div class="support">
                     <span>WSPARCIE</span>
                     <a href="o_szamsach.html">O Szamsach</a>
-                    <a href="mojePunkty.html">Moje Punkty</a>
+                    <a href="profil.html">Moje Punkty</a>
                 </div>
             </div>
             <div class="payment">
@@ -499,6 +500,8 @@
                 <p class="dimP">Wszelkie prawa zastrzeżone</p>
             </div>
         </footer>
+
+        <?php require_once("dockingPanel.php"); ?>
 
 </body>
 </html>
