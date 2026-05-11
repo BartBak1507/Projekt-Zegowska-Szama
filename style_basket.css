@@ -1,0 +1,161 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #04050D;
+    width: 100%;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+header{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #910000;
+}
+
+header img{
+    width: 25vw;
+}
+
+main h1{
+    font-size: 150%;
+    margin: 50px 670px 30px 0px;
+}
+
+
+.basketScroll{
+    width: 45%;
+    height: 55vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+.basketScroll::-webkit-scrollbar, body::-webkit-scrollbar {
+    height: 18px; /* Wysokość dla scrolla poziomego */
+}
+
+/* Tło paska (tor) */
+.basketScroll::-webkit-scrollbar-track, body::-webkit-scrollbar-track {
+    background: #1a1a1a; /* Bardzo ciemny szary, prawie czarny */
+    border-radius: 10px;
+}
+
+/* Suwak (to co przesuwasz) */
+.basketScroll::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
+    background: #444; /* Ciemniejszy szary w spoczynku */
+    border-radius: 10px;
+    border: 2px solid #1a1a1a; /* Tworzy efekt odstępu od krawędzi toru */
+}
+
+/* Suwak po najechaniu myszką */
+.basketScroll::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:hover {
+    background: #910000; /* Twoja czerwień z przycisków! */
+}
+
+.scrollItem{  /* Pojedyńcze elementy na liście do skrollowania pionowego */
+    height: 200px;
+    width: 800px;
+    background-color: #2a2a2c;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+}
+.scrollItem img{
+    width: 200px;
+    border-radius: 20px 0px 0px 20px;
+}
+
+.scrollItem .scrollItemsMainDiv{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.topDescItem{ /* górna część elementu koszyka - ta z tekstem i tabletką */
+    height: 70%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 200%;
+    padding: 10px 10px 10px 40px;
+}
+
+.topDescItem .adjustAmount{ /* ta tabletka w środku */
+    height: 100%;
+    width: 5%;
+    background-color: rebeccapurple;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.adjustAmount p{ /* ilość produktu */
+    font-size: 50%;
+    margin: 0;
+}
+
+.topBtn{ /* guzik plus */
+    height: 34%;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.bottomBtn{ /* guzik minus */
+    height: 34%;
+    border-radius: 0px 0px 20px 20px;
+    padding-bottom: 20%;
+}
+
+.bottomDescItem{ /* dolna część elementu koszyka - ta z opisem */
+    height: 50%;
+    width: 100%;
+}
+
+
+
+@media(max-width: 1800px){
+
+    header img{
+        width: 42vw;
+    }
+
+}
+
+/* dla tabletów */
+@media(max-width: 1000px){
+    
+    header img{
+        width: 50vh;
+    }
+
+}
+
+/* dla telefonów */
+@media(max-width: 440px){
+    
+    header img{
+        width: 100vw;
+    }
+
+}
