@@ -1,161 +1,269 @@
-body{
+/* RESET I UKŁAD STRONY DO STOPKI */
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
     background-color: #04050D;
     width: 100%;
-}
-
-main{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
     color: white;
+    font-family: sans-serif;
+    min-height: 100vh;
 }
 
-header{
+header {
     width: 100%;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: #910000;
 }
 
-header img{
+header img {
     width: 25vw;
 }
 
-main h1{
-    font-size: 150%;
-    margin: 50px 670px 30px 0px;
+/* GŁÓWNA TREŚĆ WYPYCHAJĄCA STOPKĘ */
+main {
+    flex: 1 0 auto; 
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding-bottom: 50px;
 }
 
-
-.basketScroll{
+.basketHeader {
     width: 45%;
-    height: 55vh;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 50px;
+    margin: 50px 0 30px 0;
 }
 
-.basketScroll::-webkit-scrollbar, body::-webkit-scrollbar {
-    height: 18px; /* Wysokość dla scrolla poziomego */
-}
-
-/* Tło paska (tor) */
-.basketScroll::-webkit-scrollbar-track, body::-webkit-scrollbar-track {
-    background: #1a1a1a; /* Bardzo ciemny szary, prawie czarny */
-    border-radius: 10px;
-}
-
-/* Suwak (to co przesuwasz) */
-.basketScroll::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
-    background: #444; /* Ciemniejszy szary w spoczynku */
-    border-radius: 10px;
-    border: 2px solid #1a1a1a; /* Tworzy efekt odstępu od krawędzi toru */
-}
-
-/* Suwak po najechaniu myszką */
-.basketScroll::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:hover {
-    background: #910000; /* Twoja czerwień z przycisków! */
-}
-
-.scrollItem{  /* Pojedyńcze elementy na liście do skrollowania pionowego */
-    height: 200px;
-    width: 800px;
-    background-color: #2a2a2c;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: row;
-    align-items:center;
-}
-.scrollItem img{
-    width: 200px;
-    border-radius: 20px 0px 0px 20px;
-}
-
-.scrollItem .scrollItemsMainDiv{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.topDescItem{ /* górna część elementu koszyka - ta z tekstem i tabletką */
-    height: 70%;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 200%;
-    padding: 10px 10px 10px 40px;
-}
-
-.topDescItem .adjustAmount{ /* ta tabletka w środku */
-    height: 100%;
-    width: 5%;
-    background-color: rebeccapurple;
-    border-radius: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.adjustAmount p{ /* ilość produktu */
-    font-size: 50%;
+main h1 {
+    font-size: 150%;
     margin: 0;
 }
 
-.topBtn{ /* guzik plus */
-    height: 34%;
-    border-radius: 20px 20px 0px 0px;
+/* KONTENER PRODUKTÓW */
+.basketScroll {
+    width: 45%;
+    max-height: 55vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
-.bottomBtn{ /* guzik minus */
-    height: 34%;
-    border-radius: 0px 0px 20px 20px;
-    padding-bottom: 20%;
-}
+.basketScroll::-webkit-scrollbar { width: 10px; }
+.basketScroll::-webkit-scrollbar-track { background: #1a1a1a; border-radius: 10px; }
+.basketScroll::-webkit-scrollbar-thumb { background: #444; border-radius: 10px; }
+.basketScroll::-webkit-scrollbar-thumb:hover { background: #910000; }
 
-.bottomDescItem{ /* dolna część elementu koszyka - ta z opisem */
-    height: 50%;
+/* KARTA PRODUKTU - POWRÓT DO DOBREGO UKŁADU */
+.scrollItem {
+    min-height: 200px; /* Przywrócone - to trzyma pion na dużym ekranie */
     width: 100%;
+    background-color: #2a2a2c;
+    border-radius: 25px;
+    display: flex;
+    overflow: hidden;
 }
 
-
-
-@media(max-width: 1800px){
-
-    header img{
-        width: 42vw;
-    }
-
+.scrollItem img {
+    width: 250px;
+    height: auto;
+    object-fit: cover;
 }
 
-/* dla tabletów */
-@media(max-width: 1000px){
-    
-    header img{
-        width: 50vh;
-    }
-
+.scrollItemsMainDiv {
+    flex-grow: 1;
+    padding: 15px 25px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Przywrócone - to dawało ładny układ */
 }
 
-/* dla telefonów */
-@media(max-width: 440px){
-    
-    header img{
-        width: 100vw;
+.itemFlexContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.itemInfo {
+    flex: 1;
+    max-width: 60%; /* Zablokowane, żeby tekst nie wchodził na przyciski */
+}
+
+.itemName { font-size: 160%; font-weight: bold; margin: 0; }
+.itemDesc { font-size: 100%; color: #ccc; margin: 5px 0; }
+
+.adjustAmount {
+    background-color: black;
+    border-radius: 30px;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0;
+    gap: 5px;
+}
+
+.adjustAmount p { margin: 0; font-size: 130%; font-weight: bold; }
+.topBtn, .bottomBtn { cursor: pointer; font-size: 150%; line-height: 1; }
+
+.itemDetails {
+    width: 100%;
+    background-color: black;
+    border: none;
+    border-radius: 20px;
+    padding: 12px 20px;
+    color: #555;
+    font-size: 90%;
+    box-sizing: border-box;
+    /* FIX: Margines na dole podnosi input wyżej, żeby nie dotykał krawędzi karty */
+    margin-bottom: 5px; 
+}
+
+/* PODSUMOWANIE I PRZYCISK ZAPŁAĆ */
+.checkoutSection {
+    width: 45%;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.promoCode input {
+    width: 100%;
+    background-color: #2a2a2c;
+    border: none;
+    padding: 15px;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+}
+
+.totalSummary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; 
+    gap: 15px;
+}
+
+.priceBox p { font-size: 150%; margin: 0; font-weight: bold; }
+.priceAmount { color: #910000; font-size: 140%; }
+.currency { color: #910000; font-size: 100%; }
+
+.payBtn {
+    background-color: #910000;
+    color: white;
+    border: none;
+    padding: 12px 60px;
+    border-radius: 15px;
+    font-size: 140%;
+    font-weight: bold;
+    transition: 0.2s ease;
+}
+
+.payBtn:hover { background-color: #7a0000; transform: scale(1.02); }
+
+/* STOPKA - ORYGINALNA */
+footer {
+    flex-shrink: 0;
+    width: 100%;
+    background-color: #2a2a2c;
+    min-height: 25vh;
+    color: white;
+    font-size: 150%;
+    margin-top: auto;
+}
+
+footer a { text-decoration: none; color: #5f5f5f; }
+footer span { font-weight: bold; color: #910000; }
+
+.supportMain { display: flex; width: 100%; height: 50%; }
+.help, .support {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #5f5f5f;
+    padding: 20px;
+}
+
+.support { border-left: 1px solid #5f5f5f; }
+
+.payment {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6%;
+    padding: 25px 0;
+}
+
+.paymentImg { width: 4vw; min-width: 40px; }
+
+.rights {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 75%;
+    padding-bottom: 20px;
+}
+
+.rights hr { width: 100%; border: 0; border-top: 1px solid #5f5f5f; margin: 0 0 15px 0; }
+.rights .dimP { color: #5f5f5f; margin-top: -5px; }
+
+/* RESPONSYWNOŚĆ */
+@media(max-width: 1200px) {
+    header img { width: 42vw; }
+    .basketHeader, .basketScroll, .checkoutSection { width: 80%; }
+}
+
+@media(max-width: 600px) {
+    .totalSummary {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .payBtn { width: 100%; padding: 15px; }
+    .priceBox p { font-size: 180%; }
+}
+
+@media(max-width: 580px) {
+    header img { width: 100vw; }
+    .basketHeader, .basketScroll, .checkoutSection { width: 95%; }
+    .scrollItem { flex-direction: column; height: auto; min-height: fit-content; width: 80%; margin: auto; }
+    .scrollItem img { width: 100%; height: 200px; }
+    footer { font-size: 100%; }
+    .paymentImg { width: 12vw; }
+
+    .itemDetails{
+        height: 75%;
+        margin-top: 7px;
     }
 
+    .adjustAmount{
+        font-size: 75%;
+        width: 45px;
+    }
+
+    .priceBox p{
+        font-size: 120%;
+    }
+
+    .itemInfo {
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+    .itemFlexContainer {
+        flex-wrap: wrap;
+    }
 }

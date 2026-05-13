@@ -8,7 +8,7 @@
             <img src="files/search_btn.png" alt="guzik z lupką">
             <p>Szukaj</p>
         </a>
-        <a href="koszyk.html" class="dock">
+        <a href="basket.html" class="dock">
             <img src="files/koszyk_btn.png" alt="guzik z koszykiem">
             <p>Koszyk</p>
         </a>
