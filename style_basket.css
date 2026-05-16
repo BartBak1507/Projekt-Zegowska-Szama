@@ -1,18 +1,8 @@
-/* RESET I UKŁAD STRONY DO STOPKI */
 html, body {
-    height: 100%;
     margin: 0;
     padding: 0;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
     background-color: #04050D;
     width: 100%;
-    color: white;
-    font-family: sans-serif;
-    min-height: 100vh;
 }
 
 header {
@@ -27,13 +17,12 @@ header img {
     width: 25vw;
 }
 
-/* GŁÓWNA TREŚĆ WYPYCHAJĄCA STOPKĘ */
 main {
-    flex: 1 0 auto; 
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
+    color: white;
     padding-bottom: 50px;
 }
 
@@ -57,14 +46,14 @@ main h1 {
     gap: 30px;
 }
 
-.basketScroll::-webkit-scrollbar { width: 10px; }
-.basketScroll::-webkit-scrollbar-track { background: #1a1a1a; border-radius: 10px; }
-.basketScroll::-webkit-scrollbar-thumb { background: #444; border-radius: 10px; }
-.basketScroll::-webkit-scrollbar-thumb:hover { background: #910000; }
+.basketScroll::-webkit-scrollbar, body::-webkit-scrollbar { height: 18px; }
+.basketScroll::-webkit-scrollbar-track, body::-webkit-scrollbar-track {     background: #1a1a1a; border-radius: 10px; }
+.basketScroll::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {    background: #444;  border-radius: 10px; border: 2px solid #1a1a1a; }
+.basketScroll::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:hover { background: #910000; }
 
-/* KARTA PRODUKTU - POWRÓT DO DOBREGO UKŁADU */
+/* KARTA PRODUKTU - DOSTOSOWANA DO TRYBU BLOKOWEGO */
 .scrollItem {
-    min-height: 200px; /* Przywrócone - to trzyma pion na dużym ekranie */
+    min-height: 200px; 
     width: 100%;
     background-color: #2a2a2c;
     border-radius: 25px;
@@ -83,7 +72,7 @@ main h1 {
     padding: 15px 25px; 
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Przywrócone - to dawało ładny układ */
+    justify-content: space-between; 
 }
 
 .itemFlexContainer {
@@ -94,7 +83,7 @@ main h1 {
 
 .itemInfo {
     flex: 1;
-    max-width: 60%; /* Zablokowane, żeby tekst nie wchodził na przyciski */
+    max-width: 60%; 
 }
 
 .itemName { font-size: 160%; font-weight: bold; margin: 0; }
@@ -123,7 +112,6 @@ main h1 {
     color: #555;
     font-size: 90%;
     box-sizing: border-box;
-    /* FIX: Margines na dole podnosi input wyżej, żeby nie dotykał krawędzi karty */
     margin-bottom: 5px; 
 }
 
@@ -171,60 +159,80 @@ main h1 {
 
 .payBtn:hover { background-color: #7a0000; transform: scale(1.02); }
 
-/* STOPKA - ORYGINALNA */
+/* STOPKA - ZBUDOWANA IDENTYCZNIE JAK NA TWOIM MAINIE */
 footer {
-    flex-shrink: 0;
     width: 100%;
     background-color: #2a2a2c;
-    min-height: 25vh;
+    height: 25vh; /* Przywrócone oryginalne 25vh z maina */
     color: white;
     font-size: 150%;
-    margin-top: auto;
 }
 
 footer a { text-decoration: none; color: #5f5f5f; }
 footer span { font-weight: bold; color: #910000; }
 
-.supportMain { display: flex; width: 100%; height: 50%; }
+.supportMain { 
+    display: flex; 
+    flex-direction: row;
+    width: 100%; 
+    height: 50%;
+}
+
 .help, .support {
     width: 50%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border-bottom: 1px solid #5f5f5f;
-    padding: 20px;
 }
 
 .support { border-left: 1px solid #5f5f5f; }
 
 .payment {
+    height: 25%;
     width: 100%;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 6%;
-    padding: 25px 0;
 }
 
-.paymentImg { width: 4vw; min-width: 40px; }
+.paymentImg { width: 4vw; margin-bottom: -5px; }
 
 .rights {
+    height: 25%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: 75%;
-    padding-bottom: 20px;
+    gap: 1px;
+    margin-bottom: -15px;
+    padding-bottom: 10px;
+    font-weight: bold;
 }
 
-.rights hr { width: 100%; border: 0; border-top: 1px solid #5f5f5f; margin: 0 0 15px 0; }
-.rights .dimP { color: #5f5f5f; margin-top: -5px; }
+.rights hr { height: 10px; width: 100%; color: transparent; }
+.rights .dimP { color: #5f5f5f; font-weight: lighter; margin-top: -20px; }
 
 /* RESPONSYWNOŚĆ */
 @media(max-width: 1200px) {
     header img { width: 42vw; }
     .basketHeader, .basketScroll, .checkoutSection { width: 80%; }
+}
+
+@media(max-width: 1800px) {
+    footer {
+        height: 25vh;
+        font-size: 125%;
+    }
+    .paymentImg { width: 5vw; margin-bottom: 10px; }
+    .rights { font-size: 80%; margin-bottom: -5px; padding-bottom: 25px; }
+    .rights .dimP { margin-top: -10px; }
 }
 
 @media(max-width: 600px) {
@@ -237,27 +245,22 @@ footer span { font-weight: bold; color: #910000; }
     .priceBox p { font-size: 180%; }
 }
 
+@media(max-width: 1000px) {
+    header img { width: 50vh; }
+    footer { height: 20vh; font-size: 110%; }
+    .paymentImg { width: 6vw; margin-bottom: 5px; }
+    .rights { font-size: 70%; margin-bottom: -5px; padding-bottom: 25px; }
+    .rights .dimP { margin-top: -10px; }
+}
+
 @media(max-width: 580px) {
-    header img { width: 100vw; }
     .basketHeader, .basketScroll, .checkoutSection { width: 95%; }
     .scrollItem { flex-direction: column; height: auto; min-height: fit-content; width: 80%; margin: auto; }
     .scrollItem img { width: 100%; height: 200px; }
-    footer { font-size: 100%; }
-    .paymentImg { width: 12vw; }
 
-    .itemDetails{
-        height: 75%;
-        margin-top: 7px;
-    }
-
-    .adjustAmount{
-        font-size: 75%;
-        width: 45px;
-    }
-
-    .priceBox p{
-        font-size: 120%;
-    }
+    .itemDetails { height: 75%; margin-top: 7px; }
+    .adjustAmount { font-size: 75%; width: 45px; }
+    .priceBox p { font-size: 120%; }
 
     .itemInfo {
         max-width: 100%;
@@ -266,4 +269,11 @@ footer span { font-weight: bold; color: #910000; }
     .itemFlexContainer {
         flex-wrap: wrap;
     }
+}
+
+@media(max-width: 440px) {
+    footer { height: 25vh; font-size: 90%; }
+    .paymentImg { width: 7vw; margin-bottom: 5px; }
+    .rights { font-size: 70%; margin-bottom: -10px; padding-bottom: 25px; }
+    .rights .dimP { margin-top: -10px; }
 }

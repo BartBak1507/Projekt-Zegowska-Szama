@@ -106,25 +106,25 @@ header img{
 
 /* Główny kontener paska */
 .horizontalScroll::-webkit-scrollbar, body::-webkit-scrollbar {
-    height: 18px; /* Wysokość dla scrolla poziomego */
+    height: 18px;
 }
 
 /* Tło paska (tor) */
 .horizontalScroll::-webkit-scrollbar-track, body::-webkit-scrollbar-track {
-    background: #1a1a1a; /* Bardzo ciemny szary, prawie czarny */
+    background: #1a1a1a;
     border-radius: 10px;
 }
 
 /* Suwak (to co przesuwasz) */
 .horizontalScroll::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
-    background: #444; /* Ciemniejszy szary w spoczynku */
+    background: #444; 
     border-radius: 10px;
-    border: 2px solid #1a1a1a; /* Tworzy efekt odstępu od krawędzi toru */
+    border: 2px solid #1a1a1a; 
 }
 
 /* Suwak po najechaniu myszką */
 .horizontalScroll::-webkit-scrollbar-thumb:hover, body::-webkit-scrollbar-thumb:hover {
-    background: #910000; /* Twoja czerwień z przycisków! */
+    background: #910000; 
 }
 
 section{ /* sekcje z paragrafami z nazwą sekcji oraz produktami w horizontalscrollu */

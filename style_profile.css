@@ -1,0 +1,245 @@
+/* ==========================================================================
+   GLOBALNE STYLOWANIE ORYGINALNE (KOSZYK / MAIN)
+   ========================================================================== */
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #04050D;
+    width: 100%;
+}
+
+body::-webkit-scrollbar { height: 18px; }
+body::-webkit-scrollbar-track {   background: #1a1a1a; border-radius: 10px; }
+body::-webkit-scrollbar-thumb {   background: #444;  border-radius: 10px; border: 2px solid #1a1a1a; }
+body::-webkit-scrollbar-thumb:hover { background: #910000; }
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #910000;
+}
+
+header img {
+    width: 25vw;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    color: white;
+    padding-bottom: 50px;
+}
+
+/* ==========================================================================
+   NOWA SEKCJA ELEMENTÓW PROFILU
+   ========================================================================== */
+.profileCard {
+    width: 100%;
+    max-width: 440px; /* Szerokość dopasowana do najniższego punktu responsu */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    padding: 0 20px;
+}
+
+/* Awatar */
+.avatarSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.userAvatar {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.profileName {
+    font-size: 160%;
+    color: #5f5f5f; /* Przygaszony kolor tekstu z makiety */
+    margin: 0;
+}
+
+/* Kod QR */
+.qrSection {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+}
+
+.qrImage {
+    max-width: 65%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Przyciski menu - Stan domyślny (PC / duże ekrany) */
+.profileMenu {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profileBtn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2a2a2c; /* Szare tło */
+    color: white;
+    text-decoration: none;
+    padding: 16px 30px;
+    border: 4px solid #910000; /* Gruba czerwona ramka */
+    border-radius: 30px; /* Pełne zaokrąglenie pigułki */
+    font-size: 150%;
+    transition: background-color 0.2s ease;
+}
+
+.profileBtn:active {
+    background-color: #1c1c1e;
+}
+
+/* ==========================================================================
+   STOPKA - DOKŁADNA KOPIA JEDEN DO JEDNEGO Z TWOJEGO KODU
+   ========================================================================== */
+footer {
+    width: 100%;
+    background-color: #2a2a2c;
+    height: 25vh; 
+    color: white;
+    font-size: 150%;
+}
+
+footer a { text-decoration: none; color: #5f5f5f; }
+footer span { font-weight: bold; color: #910000; }
+
+.supportMain { 
+    display: flex; 
+    flex-direction: row;
+    width: 100%; 
+    height: 50%;
+}
+
+.help, .support {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #5f5f5f;
+}
+
+.support { border-left: 1px solid #5f5f5f; }
+
+.payment {
+    height: 25%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6%;
+}
+
+.paymentImg { width: 4vw; margin-bottom: -5px; }
+
+.rights {
+    height: 25%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 75%;
+    gap: 1px;
+    margin-bottom: -15px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.rights hr { height: 10px; width: 100%; color: transparent; }
+.rights .dimP { color: #5f5f5f; font-weight: lighter; margin-top: -20px; }
+
+/* ==========================================================================
+   MEDIA QUERIES - RESPONS I POMNIEJSZANIE ELEMENTÓW
+   ========================================================================== */
+@media(max-width: 1200px) {
+    header img { width: 42vw; }
+}
+
+@media(max-width: 1800px) {
+    footer {
+        height: 25vh;
+        font-size: 125%;
+    }
+    .paymentImg { width: 5vw; margin-bottom: 10px; }
+    .rights { font-size: 80%; margin-bottom: -5px; padding-bottom: 25px; }
+    .rights .dimP { margin-top: -10px; }
+}
+
+@media(max-width: 600px) {
+    /* Zachowanie pustej reguły z oryginalnego pliku dla spójności */
+}
+
+/* Średnie ekrany (np. tablety i mniejsze laptopy) */
+@media(max-width: 1000px) {
+    header img { width: 50vh; }
+    footer { height: 20vh; font-size: 110%; }
+    .paymentImg { width: 6vw; margin-bottom: 5px; }
+    .rights { font-size: 70%; margin-bottom: -5px; padding-bottom: 25px; }
+    .rights .dimP { margin-top: -10px; }
+
+    /* Zmniejszamy przyciski profilu dla tabletów */
+    .profileBtn {
+        padding: 12px 24px;
+        font-size: 125%;
+        border-width: 3px; /* Delikatniejsza ramka */
+        border-radius: 20px;
+    }
+    .profileMenu {
+        gap: 15px; /* Mniejsze odstępy między przyciskami */
+    }
+    .userAvatar {
+        width: 100px; /* Lekko mniejszy awatar */
+    }
+}
+
+@media(max-width: 580px) {
+    /* Zachowanie struktury punktu łamania kart z koszyka */
+}
+
+/* Typowe ekrany smartfonów */
+@media(max-width: 440px) {
+    header img { width: 100vw; }
+    footer { height: 25vh; font-size: 90%; }
+    .paymentImg { width: 7vw; margin-bottom: 5px; }
+    .rights { font-size: 70%; margin-bottom: -10px; padding-bottom: 25px; }
+    .rights .dimP { margin-top: -10px; }
+
+    /* Maksymalne dopasowanie przycisków do ekranów mobilnych */
+    .profileBtn {
+        padding: 10px 20px;
+        font-size: 105%; /* Kompaktowy font dopasowany do przycisków logowania z Twojego maina */
+        border-width: 2.5px;
+        border-radius: 15px;
+    }
+    .profileMenu {
+        gap: 12px;
+    }
+    .userAvatar {
+        width: 85px;
+    }
+    .profileName {
+        font-size: 130%;
+    }
+}

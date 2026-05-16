@@ -8,11 +8,11 @@
             <img src="files/search_btn.png" alt="guzik z lupką">
             <p>Szukaj</p>
         </a>
-        <a href="basket.html" class="dock">
+        <a href="basket.php" class="dock">
             <img src="files/koszyk_btn.png" alt="guzik z koszykiem">
             <p>Koszyk</p>
         </a>
-        <a href="profil.html" class="dock">
+        <a href="profile.php" class="dock">
             <img src="files/profile_btn.png" alt="guzik z profilem">
             <p>Profil</p>
         </a>
