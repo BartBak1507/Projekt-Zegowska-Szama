@@ -151,7 +151,7 @@ footer span { font-weight: bold; color: #910000; }
     gap: 6%;
 }
 
-.paymentImg { width: 4vw; margin-bottom: -5px; }
+.paymentImg { width: 3vw; margin-bottom: -5px; }
 
 .rights {
     height: 25%;
@@ -222,8 +222,8 @@ footer span { font-weight: bold; color: #910000; }
 @media(max-width: 440px) {
     header img { width: 100vw; }
     footer { height: 25vh; font-size: 90%; }
-    .paymentImg { width: 7vw; margin-bottom: 5px; }
-    .rights { font-size: 70%; margin-bottom: -10px; padding-bottom: 25px; }
+    .paymentImg { width: 10vw; margin-bottom: 5px; }
+    .rights { font-size: 80%; margin-bottom: -10px; padding-bottom: 25px; }
     .rights .dimP { margin-top: -10px; }
 
     /* Maksymalne dopasowanie przycisków do ekranów mobilnych */

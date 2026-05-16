@@ -236,7 +236,7 @@ footer span{
 }
 
 .paymentImg{  /* klasa obrazków z metodami płattności */
-    width: 4vw;
+    width: 3vw;
     margin-bottom: -5px;
 }
 
@@ -535,12 +535,12 @@ footer span{
     }
 
     .paymentImg{  /* klasa obrazków z metodami płattności */
-        width: 7vw;
+        width: 10vw;
         margin-bottom: 5px;
     }
 
     .rights{ /* sekcja 'wszelkie prawa zastrzeżone 🤓' ze stopki */
-        font-size: 70%;
+        font-size: 80%;
         gap: 0px;
         margin-bottom: -10px;
         padding-bottom: 25px;

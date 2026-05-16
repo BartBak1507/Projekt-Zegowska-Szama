@@ -83,7 +83,7 @@
             <div class="support">
                 <span>WSPARCIE</span>
                 <a href="o_szamsach.html">O Szamsach</a>
-                <a href="profil.html">Moje Punkty</a>
+                <a href="profile.php">Moje Punkty</a>
             </div>
         </div>
         <div class="payment">
