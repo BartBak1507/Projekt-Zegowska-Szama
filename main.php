@@ -1,3 +1,4 @@
+<?php require_once('src/config.php'); ?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -20,181 +21,43 @@
             <section>
                 <p class="sectionName">Co Nie Co Na Ciepło <img src="files/hipekBurger.png" alt="hipek z burgerem"></p>
                 <div class="horizontalScroll">
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
 
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
+                    <?php while($row = mysqli_fetch_assoc($mainFetchResult)): ?>
 
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
+                        <?php if($row['kategoria'] == 1): ?>
+                        
+                            <div class="scrollItem">
+                                <img src="produkty/bułka_z_serem.png" alt="artykuł">
+                                <p class="topP text-break"><?php echo $row['nazwa']; ?></p>
+                                <p class="bottomP"><?php echo $row['cena']. "zł"; ?></p>
+                                <button>+</button>
+                            </div>
 
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
+                        <?php endif; ?>
 
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
+                    <?php endwhile; ?>
 
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
                 </div>
             </section>
             <section>
                 <p class="sectionName">Ogrzej się <img src="files/hipekHerbata.png" alt="hipek z herbatą"></p>
                 <div class="horizontalScroll">
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
 
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
+                    <?php mysqli_data_seek($mainFetchResult, 0); while($row = mysqli_fetch_assoc($mainFetchResult)): ?>
 
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
+                        <?php if($row['kategoria'] == 2): ?>
+                        
+                            <div class="scrollItem">
+                                <img src="produkty/bułka_z_serem.png" alt="artykuł">
+                                <p class="topP text-break"><?php echo $row['nazwa']; ?></p>
+                                <p class="bottomP"><?php echo $row['cena']. "zł"; ?></p>
+                                <button>+</button>
+                            </div>
 
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
+                        <?php endif; ?>
 
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
+                    <?php endwhile; ?>
 
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
                 </div>
             </section>
 
@@ -203,271 +66,64 @@
             <section>
                 <p class="sectionName">Napoje <img src="files/hipekPicie.png" alt="hipek z piciem"></p>
                 <div class="horizontalScroll">
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
+                    
+                    <?php mysqli_data_seek($mainFetchResult, 0); while($row = mysqli_fetch_assoc($mainFetchResult)): ?>
 
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
+                        <?php if($row['kategoria'] == 3): ?>
+                        
+                            <div class="scrollItem">
+                                <img src="produkty/bułka_z_serem.png" alt="artykuł">
+                                <p class="topP text-break"><?php echo $row['nazwa']; ?></p>
+                                <p class="bottomP"><?php echo $row['cena']. "zł"; ?></p>
+                                <button>+</button>
+                            </div>
 
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
+                        <?php endif; ?>
 
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
+                    <?php endwhile; ?>
+                    
                 </div>
             </section>
             <section>
                 <p class="sectionName">Przekąski Słodkie <img src="files/hipekŻelek.png" alt="hipek z żelkiem"></p>
                 <div class="horizontalScroll">
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
+                    
+                    <?php mysqli_data_seek($mainFetchResult, 0); while($row = mysqli_fetch_assoc($mainFetchResult)): ?>
 
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
+                        <?php if($row['kategoria'] == 4): ?>
+                        
+                            <div class="scrollItem">
+                                <img src="produkty/bułka_z_serem.png" alt="artykuł">
+                                <p class="topP text-break"><?php echo $row['nazwa']; ?></p>
+                                <p class="bottomP"><?php echo $row['cena']. "zł"; ?></p>
+                                <button>+</button>
+                            </div>
 
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
+                        <?php endif; ?>
 
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
+                    <?php endwhile; ?>
 
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
                 </div>
             </section>
             <section>
                 <p class="sectionName">Przekąski Słone <img src="files/hipekCzips.png" alt="hipek z czipsem"></p>
                 <div class="horizontalScroll">
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
+                
+                    <?php mysqli_data_seek($mainFetchResult, 0); while($row = mysqli_fetch_assoc($mainFetchResult)): ?>
 
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
+                        <?php if($row['kategoria'] == 5): ?>
+                        
+                            <div class="scrollItem">
+                                <img src="produkty/bułka_z_serem.png" alt="artykuł">
+                                <p class="topP text-break"><?php echo $row['nazwa']; ?></p>
+                                <p class="bottomP"><?php echo $row['cena']. "zł"; ?></p>
+                                <button>+</button>
+                            </div>
 
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
+                        <?php endif; ?>
 
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
+                    <?php endwhile; ?>
 
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
-                    <div class="scrollItem">
-                        <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                        <p>Bułka z Serem</p>
-                        <button>+</button>
-                    </div>
                 </div>
             </section>
         </div>
