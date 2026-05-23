@@ -111,7 +111,7 @@ span{
 .badInf{
     color: #910000;
     font-size: 100%;
-    margin: 20px;
+    margin: 15px;
     font-weight: bold;
     border: 1px #910000 dashed;
     padding: 5px;
@@ -120,7 +120,7 @@ span{
 .goodInf{
     color: white;
     font-size: 100%;
-    margin: 20px;
+    margin: 15px;
     font-weight: bold;
     border: 1px white dashed;
     padding: 5px;

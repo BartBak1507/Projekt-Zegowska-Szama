@@ -1,3 +1,5 @@
+<?php require_once('src/config.php'); ?>
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -16,12 +18,19 @@
         
         <h1>Witaj ponownie!</h1>
         <form action="" method="post">
-            <input type="text" placeholder="E-mail lub nazwa użytkownika"><br>
-            <input type="password" placeholder="Hasło"><br>
+            <input type="text" placeholder="E-mail lub nazwa użytkownika" name="nazwaAlboMail" value="<?php if(isset($nazwaAlboMail)){ echo $nazwaAlboMail; } ?>" required><br>
+            <input type="password" minlength="8" placeholder="Hasło" name="hasło" required><br>
             <a class="linkForgot" href="...">Zapomniałeś hasła?</a><br>
             <input type="submit" value="Zaloguj się" name="login"><br>
             <a href="register.php" class="linkCenter">Nie masz jeszcze konta? <span>Zarejestruj się</span></a>
         </form>
+        
+        <?php if(isset($info) && $info == "wrongLoginOrPass"): ?>
+
+            <p class="badInf">Błędny login lub hasło ❌</p>
+        
+        <?php endif; ?>
+
     </main>
 </body>
 </html>

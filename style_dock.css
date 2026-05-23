@@ -93,14 +93,15 @@ body{
     .dockingPanel .dock{
         gap: 5px;
         font-size: 95%;
+        margin-bottom: 7px;
     }
 
     .dock img{
-        width: 35%;
+        width: 32%;
     }
     
     .dock p{
-        margin-bottom: -10px;
+        margin-bottom: -13px;
     }
 
 }

@@ -22,6 +22,28 @@
     if($_SERVER['REQUEST_METHOD'] == "POST"){
         if(isset($_POST['login'])){
 
+            $nazwaAlboMail = htmlspecialchars($_POST['nazwaAlboMail'], ENT_QUOTES);
+            $haslo = htmlspecialchars($_POST['hasło'], ENT_QUOTES);
+
+            $query = "SELECT id, mail, hasło, nazwa_użytkownika, czy_admin FROM użytkownik WHERE nazwa_użytkownika = ? OR mail = ?";
+
+            $stmt = mysqli_prepare($mysqli, $query);
+
+            mysqli_stmt_bind_param($stmt, "ss", $nazwaAlboMail, $nazwaAlboMail);
+            mysqli_stmt_execute($stmt);
+            $result = mysqli_stmt_get_result($stmt);
+            $user = mysqli_fetch_assoc($result);
+
+            if (mysqli_num_rows($result) == 0 || !password_verify($haslo, $user['hasło'])) {
+                $info = "wrongLoginOrPass";
+            }
+            else{
+                header("Location: main.php");
+                exit();
+            }
+
+
+
         }
 
         if(isset($_POST['register'])){
