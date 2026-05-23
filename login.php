@@ -19,8 +19,8 @@
             <input type="text" placeholder="E-mail lub nazwa użytkownika"><br>
             <input type="password" placeholder="Hasło"><br>
             <a class="linkForgot" href="...">Zapomniałeś hasła?</a><br>
-            <input type="submit" value="Zaloguj się"><br>
-            <a href="register.html" class="linkCenter">Nie masz jeszcze konta? <span>Zarejestruj się</span></a>
+            <input type="submit" value="Zaloguj się" name="login"><br>
+            <a href="register.php" class="linkCenter">Nie masz jeszcze konta? <span>Zarejestruj się</span></a>
         </form>
     </main>
 </body>

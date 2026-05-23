@@ -15,7 +15,7 @@
         <img  class="img-fluid" src="files/BANER_LEPSZY.png" alt="baner">
     </header>
     <main>
-        <div class="loginOrRegister"><a class="loginOrRegisterBtn" href="login.html">Zaloguj się</a> lub <a class="loginOrRegisterBtn" href="register.html">Zarejestruj się</a></div>
+        <div class="loginOrRegister"><a class="loginOrRegisterBtn" href="login.php">Zaloguj się</a> lub <a class="loginOrRegisterBtn" href="register.php">Zarejestruj się</a></div>
         <div class="searchFor"><img src="files/search_btn.png" alt="lupa"><input type="text" placeholder="Na co masz dziś ochotę?"> </div>
         <div class="scrollable">
             <section>
