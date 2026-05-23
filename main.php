@@ -27,7 +27,7 @@
                         <?php if($row['kategoria'] == 1): ?>
                         
                             <div class="scrollItem">
-                                <img src="produkty/bułka_z_serem.png" alt="artykuł">
+                                <img src="produkty/<?php echo $row['zdjęcie']; ?>" alt="artykuł">
                                 <p class="topP text-break"><?php echo $row['nazwa']; ?></p>
                                 <p class="bottomP"><?php echo $row['cena']. "zł"; ?></p>
                                 <button>+</button>
@@ -48,7 +48,7 @@
                         <?php if($row['kategoria'] == 2): ?>
                         
                             <div class="scrollItem">
-                                <img src="produkty/bułka_z_serem.png" alt="artykuł">
+                                <img src="produkty/<?php echo $row['zdjęcie']; ?>" alt="artykuł">
                                 <p class="topP text-break"><?php echo $row['nazwa']; ?></p>
                                 <p class="bottomP"><?php echo $row['cena']. "zł"; ?></p>
                                 <button>+</button>
@@ -72,7 +72,7 @@
                         <?php if($row['kategoria'] == 3): ?>
                         
                             <div class="scrollItem">
-                                <img src="produkty/bułka_z_serem.png" alt="artykuł">
+                                <img src="produkty/<?php echo $row['zdjęcie']; ?>" alt="artykuł">
                                 <p class="topP text-break"><?php echo $row['nazwa']; ?></p>
                                 <p class="bottomP"><?php echo $row['cena']. "zł"; ?></p>
                                 <button>+</button>
@@ -93,7 +93,7 @@
                         <?php if($row['kategoria'] == 4): ?>
                         
                             <div class="scrollItem">
-                                <img src="produkty/bułka_z_serem.png" alt="artykuł">
+                                <img src="produkty/<?php echo $row['zdjęcie']; ?>" alt="artykuł">
                                 <p class="topP text-break"><?php echo $row['nazwa']; ?></p>
                                 <p class="bottomP"><?php echo $row['cena']. "zł"; ?></p>
                                 <button>+</button>
@@ -114,7 +114,7 @@
                         <?php if($row['kategoria'] == 5): ?>
                         
                             <div class="scrollItem">
-                                <img src="produkty/bułka_z_serem.png" alt="artykuł">
+                                <img src="produkty/<?php echo $row['zdjęcie']; ?>" alt="artykuł">
                                 <p class="topP text-break"><?php echo $row['nazwa']; ?></p>
                                 <p class="bottomP"><?php echo $row['cena']. "zł"; ?></p>
                                 <button>+</button>

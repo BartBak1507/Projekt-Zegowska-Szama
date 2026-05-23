@@ -9,7 +9,7 @@
 
     mysqli_set_charset($mysqli, "utf8mb4");
 
-    $query = "SELECT nazwa, cena, kategoria, mnożnik_promocji FROM `produkty` WHERE dostępność = 1";
+    $query = "SELECT nazwa, cena, kategoria, mnożnik_promocji, zdjęcie FROM `produkty` WHERE dostępność = 1";
 
     $stmt = mysqli_prepare($mysqli, $query);
 
