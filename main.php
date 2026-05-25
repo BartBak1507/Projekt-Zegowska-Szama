@@ -15,7 +15,16 @@
         <img  class="img-fluid" src="files/BANER_LEPSZY.png" alt="baner">
     </header>
     <main>
+        <?php if(isset($_SESSION['id'])): ?>
+
+            <div class="loginOrRegister"><a class="loginOrRegisterBtn" href="login.php">Zalo</a> lub <a class="loginOrRegisterBtn" href="register.php">gowan</a></div>
+
+        <?php else: ?>
+
         <div class="loginOrRegister"><a class="loginOrRegisterBtn" href="login.php">Zaloguj się</a> lub <a class="loginOrRegisterBtn" href="register.php">Zarejestruj się</a></div>
+        
+        <?php endif; ?>
+
         <div class="searchFor"><img src="files/search_btn.png" alt="lupa"><input type="text" placeholder="Na co masz dziś ochotę?"> </div>
         <div class="scrollable">
             <section>

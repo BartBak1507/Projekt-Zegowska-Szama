@@ -1,11 +1,12 @@
 <?php 
 
+    session_start();
 
     $mysqli = mysqli_connect('localhost', 'root', '', 'zegowska_szama');
     $info = "";
 
     if (!$mysqli) {
-        die("Błąd połączenia: " . mysqli_connect_error());
+        die("Przepraszamy wystąpił błąd: " . mysqli_connect_error());
     }
 
     mysqli_set_charset($mysqli, "utf8mb4");
@@ -38,6 +39,11 @@
                 $info = "wrongLoginOrPass";
             }
             else{
+
+                $_SESSION['id'] = $user['id'];
+                $_SESSION['nazwa_użytkownika'] = $user['nazwa_użytkownika'];
+                $_SESSION['czy_admin'] = $user['czy_admin'];
+
                 header("Location: main.php");
                 exit();
             }
