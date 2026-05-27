@@ -27,10 +27,11 @@ header img{
     width: 25vw;
 }
 
+/* TWOJE ORYGINALNE TŁO - BEZ ZMIAN */
 .loginOrRegister{
     background-color: #2a2a2c;
     margin-top: -15px;
-    padding: 40px;
+    padding: 35px;
     border-radius: 15px;
 }
 
@@ -60,6 +61,52 @@ header img{
     justify-content: center;
     align-items: center;
     gap: 20px;
+}
+
+/* NOWA KLASA TYLKO DLA ZALOGOWANYCH */
+.user-logged-in {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    box-sizing: border-box;
+}
+
+.user-logged-in p {
+    margin: 0;
+    margin-right: auto;
+    font-size: 180%;
+    font-weight: bold;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.user-logged-in .ikon {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+}
+
+.user-logged-in > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #6a0d0d;
+    border: 2px solid #910000;
+    border-radius: 20px;
+    padding: 15px 25px;
+    font-size: 160%;
+    font-weight: bold;
+    color: #b41717;
+    gap: 20px;
+    line-height: 1.2;
+}
+
+.user-logged-in .szams {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
 }
 
 .searchFor img{
@@ -379,6 +426,28 @@ footer span{
         width: 7%;
     }
 
+    /* ZMIENIONE NA user-logged-in */
+    .user-logged-in {
+        gap: 25px;
+    }
+    .user-logged-in p {
+        font-size: 160%;
+    }
+    .user-logged-in .ikon {
+        width: 80px;
+        height: 80px;
+    }
+    .user-logged-in > div {
+        padding: 12px 20px;
+        font-size: 130%;
+        gap: 15px;
+        border-radius: 15px;
+    }
+    .user-logged-in .szams {
+        width: 50px;
+        height: 50px;
+    }
+
 }
 
 /* dla tabletów */
@@ -389,7 +458,7 @@ footer span{
     }
 
     .horizontalScroll{ 
-        gap: 25px;                 
+        gap: 25px;                
     }
 
     .scrollItem{  /* Pojedyńcze elementy na liście do skrollowania poziomego */
@@ -485,7 +554,27 @@ footer span{
         width: 9%;
     }
 
-
+    /* ZMIENIONE NA user-logged-in */
+    .user-logged-in {
+        gap: 20px;
+        padding: 20px 15px;
+    }
+    .user-logged-in p {
+        font-size: 150%;
+    }
+    .user-logged-in .ikon {
+        width: 60px;
+        height: 60px;
+    }
+    .user-logged-in > div {
+        padding: 10px 15px;
+        font-size: 110%;
+        gap: 10px;
+    }
+    .user-logged-in .szams {
+        width: 40px;
+        height: 40px;
+    }
 }
 
 /* dla telefonów */
@@ -496,7 +585,7 @@ footer span{
     }
 
     .horizontalScroll{ 
-        gap: 18px;                 
+        gap: 18px;                
     }
 
     .scrollItem{  /* Pojedyńcze elementy na liście do skrollowania poziomego */
@@ -596,5 +685,32 @@ footer span{
         width: 25%;
     }
 
-
+    /* ZMIENIONE NA user-logged-in */
+    .user-logged-in {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+        width: 90%;
+        padding: 10px;
+    }
+    .user-logged-in p {
+        margin-right: 0;
+        font-size: 130%;
+    }
+    .user-logged-in .ikon {
+        width: 100px;
+        height: 100px;
+    }
+    .user-logged-in > div {
+        width: 80%;
+        justify-content: center;
+        padding: 10px;
+        font-size: 100%;
+        box-sizing: border-box;
+    }
+    .user-logged-in .szams {
+        width: 35px;
+        height: 35px;
+    }
 }

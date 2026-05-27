@@ -18,6 +18,7 @@ body{
 }
 
 .dockingPanel .dock{
+    margin-top: 10px;
     width: 20%;
     display: flex;
     flex-direction: column;

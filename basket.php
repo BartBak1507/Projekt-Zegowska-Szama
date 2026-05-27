@@ -105,3 +105,5 @@
 
 </body>
 </html>
+
+<script src="src/app.js"></script>

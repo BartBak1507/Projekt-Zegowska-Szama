@@ -1,3 +1,4 @@
+<?php require_once('src/config.php'); ?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -18,7 +19,11 @@
         <div class="profileCard">
             <div class="avatarSection">
                 <img src="files/ikona.png" alt="Avatar" class="userAvatar">
-                <p class="profileName">Nazwa Użytkownika</p>
+                <?php if(isset($_SESSION['id'])): ?>
+                    <p class="profileName"><?php echo $_SESSION['nazwa_użytkownika']; ?></p>
+                <?php else: ?>
+                    <p class="profileName">Nie zalogowano</p>
+                <?php endif; ?>
             </div>
 
             <div class="qrSection">
@@ -34,6 +39,12 @@
                     <span>Historia transakcji</span>
                     <span>&gt;</span>
                 </a>
+                <?php if(isset($_SESSION['id'])): ?>
+                <a href="profile.php?logout=1" class="profileBtn">
+                    <span>Wyloguj</span>
+                    <span>&gt;</span>
+                </a>
+                <?php endif; ?>
             </div>
         </div>
     </main>
@@ -69,3 +80,4 @@
     
 </body>
 </html>
+<script src="src/app.js"></script>

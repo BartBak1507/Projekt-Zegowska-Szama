@@ -11,7 +11,19 @@
 
     mysqli_set_charset($mysqli, "utf8mb4");
 
-    $query = "SELECT nazwa, cena, kategoria, mnożnik_promocji, zdjęcie FROM `produkty` WHERE dostępność = 1";
+    function fetchSzamsy($conn){
+        $id = $_SESSION['id'];
+        $query = "SELECT szamsy FROM użytkownik WHERE id = ?";
+        $stmt = mysqli_prepare($conn, $query);
+        mysqli_stmt_bind_param($stmt, "i", $id);
+        mysqli_stmt_execute($stmt);
+        return mysqli_stmt_get_result($stmt);
+    }
+
+
+
+
+    $query = "SELECT id, nazwa, cena, kategoria, mnożnik_promocji, zdjęcie FROM `produkty` WHERE dostępność = 1";
 
     $stmt = mysqli_prepare($mysqli, $query);
 
@@ -88,5 +100,32 @@
                 }
 
             }
+        }
+    }
+
+    if($_SERVER['REQUEST_METHOD'] == "GET"){
+        if (isset($_GET['logout']) && $_GET['logout'] == 1) {
+            
+            if (session_status() === PHP_SESSION_NONE) {
+                session_start();
+            }
+
+            unset($_SESSION['id']);
+            unset($_SESSION['nazwa_użytkownika']);
+
+            $_SESSION = array();
+            
+            if (ini_get("session.use_cookies")) {
+                $params = session_get_cookie_params();
+                setcookie(session_name(), '', time() - 42000,
+                    $params["path"], $params["domain"],
+                    $params["secure"], $params["httponly"]
+                );
+            }
+            
+            session_destroy(); 
+
+            header("Location: main.php");
+            exit(); 
         }
     }

@@ -17,12 +17,12 @@
     <main>
         <?php if(isset($_SESSION['id'])): ?>
 
-            <div class="loginOrRegister"><a class="loginOrRegisterBtn" href="login.php">Zalo</a> lub <a class="loginOrRegisterBtn" href="register.php">gowan</a></div>
+            <div class="loginOrRegister user-logged-in"><img class="ikon" src="files/ikona.png" alt="ikona"> <p>Cześć <br> <?php echo $_SESSION['nazwa_użytkownika']; ?></p> <div> <img class="szams" src="files/szams.png" alt="szams"> Masz: <?php $result = fetchSzamsy($mysqli); $row = mysqli_fetch_assoc($result);  echo $row['szamsy'];?> <br>Szamsów</div></div>
 
         <?php else: ?>
 
-        <div class="loginOrRegister"><a class="loginOrRegisterBtn" href="login.php">Zaloguj się</a> lub <a class="loginOrRegisterBtn" href="register.php">Zarejestruj się</a></div>
-        
+            <div class="loginOrRegister"><a class="loginOrRegisterBtn" href="login.php">Zaloguj się</a> lub <a class="loginOrRegisterBtn" href="register.php">Zarejestruj się</a></div>
+            
         <?php endif; ?>
 
         <div class="searchFor"><img src="files/search_btn.png" alt="lupa"><input type="text" placeholder="Na co masz dziś ochotę?"> </div>
@@ -35,12 +35,13 @@
 
                         <?php if($row['kategoria'] == 1): ?>
                         
-                            <div class="scrollItem">
-                                <img src="produkty/<?php echo $row['zdjęcie']; ?>" alt="artykuł">
-                                <p class="topP text-break"><?php echo $row['nazwa']; ?></p>
-                                <p class="bottomP"><?php echo $row['cena']. "zł"; ?></p>
-                                <button>+</button>
-                            </div>
+                        <div class="scrollItem">
+                            <input type="hidden" class="productId" value="<?php echo $row['id']; ?>" data-image="produkty/<?php echo $row['zdjęcie']; ?>">
+                            <img src="produkty/<?php echo $row['zdjęcie']; ?>" alt="artykuł">
+                            <p class="topP text-break"><?php echo $row['nazwa']; ?></p>
+                            <p class="bottomP"><?php echo $row['cena']. "zł"; ?></p>
+                            <button>+</button>
+                        </div>
 
                         <?php endif; ?>
 
@@ -56,12 +57,13 @@
 
                         <?php if($row['kategoria'] == 2): ?>
                         
-                            <div class="scrollItem">
-                                <img src="produkty/<?php echo $row['zdjęcie']; ?>" alt="artykuł">
-                                <p class="topP text-break"><?php echo $row['nazwa']; ?></p>
-                                <p class="bottomP"><?php echo $row['cena']. "zł"; ?></p>
-                                <button>+</button>
-                            </div>
+                        <div class="scrollItem">
+                            <input type="hidden" class="productId" value="<?php echo $row['id']; ?>" data-image="produkty/<?php echo $row['zdjęcie']; ?>">
+                            <img src="produkty/<?php echo $row['zdjęcie']; ?>" alt="artykuł">
+                            <p class="topP text-break"><?php echo $row['nazwa']; ?></p>
+                            <p class="bottomP"><?php echo $row['cena']. "zł"; ?></p>
+                            <button>+</button>
+                        </div>
 
                         <?php endif; ?>
 
@@ -81,6 +83,7 @@
                         <?php if($row['kategoria'] == 3): ?>
                         
                             <div class="scrollItem">
+                                <input type="hidden" class="productId" value="<?php echo $row['id']; ?>" data-image="produkty/<?php echo $row['zdjęcie']; ?>">
                                 <img src="produkty/<?php echo $row['zdjęcie']; ?>" alt="artykuł">
                                 <p class="topP text-break"><?php echo $row['nazwa']; ?></p>
                                 <p class="bottomP"><?php echo $row['cena']. "zł"; ?></p>
@@ -101,12 +104,13 @@
 
                         <?php if($row['kategoria'] == 4): ?>
                         
-                            <div class="scrollItem">
-                                <img src="produkty/<?php echo $row['zdjęcie']; ?>" alt="artykuł">
-                                <p class="topP text-break"><?php echo $row['nazwa']; ?></p>
-                                <p class="bottomP"><?php echo $row['cena']. "zł"; ?></p>
-                                <button>+</button>
-                            </div>
+                        <div class="scrollItem">
+                            <input type="hidden" class="productId" value="<?php echo $row['id']; ?>" data-image="produkty/<?php echo $row['zdjęcie']; ?>">
+                            <img src="produkty/<?php echo $row['zdjęcie']; ?>" alt="artykuł">
+                            <p class="topP text-break"><?php echo $row['nazwa']; ?></p>
+                            <p class="bottomP"><?php echo $row['cena']. "zł"; ?></p>
+                            <button>+</button>
+                        </div>
 
                         <?php endif; ?>
 
@@ -122,12 +126,13 @@
 
                         <?php if($row['kategoria'] == 5): ?>
                         
-                            <div class="scrollItem">
-                                <img src="produkty/<?php echo $row['zdjęcie']; ?>" alt="artykuł">
-                                <p class="topP text-break"><?php echo $row['nazwa']; ?></p>
-                                <p class="bottomP"><?php echo $row['cena']. "zł"; ?></p>
-                                <button>+</button>
-                            </div>
+                        <div class="scrollItem">
+                            <input type="hidden" class="productId" value="<?php echo $row['id']; ?>" data-image="produkty/<?php echo $row['zdjęcie']; ?>">
+                            <img src="produkty/<?php echo $row['zdjęcie']; ?>" alt="artykuł">
+                            <p class="topP text-break"><?php echo $row['nazwa']; ?></p>
+                            <p class="bottomP"><?php echo $row['cena']. "zł"; ?></p>
+                            <button>+</button>
+                        </div>
 
                         <?php endif; ?>
 
@@ -170,3 +175,5 @@
 
 </body>
 </html>
+
+<script src="src/app.js"></script>
