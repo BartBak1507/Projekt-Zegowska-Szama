@@ -1,6 +1,3 @@
-/* ==========================================================================
-   GLOBALNE STYLOWANIE ORYGINALNE (KOSZYK / MAIN)
-   ========================================================================== */
 html, body {
     margin: 0;
     padding: 0;
@@ -9,8 +6,8 @@ html, body {
 }
 
 body::-webkit-scrollbar { height: 18px; }
-body::-webkit-scrollbar-track {    background: #1a1a1a; border-radius: 10px; }
-body::-webkit-scrollbar-thumb {   background: #444;  border-radius: 10px; border: 2px solid #1a1a1a; }
+body::-webkit-scrollbar-track { background: #1a1a1a; border-radius: 10px; }
+body::-webkit-scrollbar-thumb { background: #444; border-radius: 10px; border: 2px solid #1a1a1a; }
 body::-webkit-scrollbar-thumb:hover { background: #910000; }
 
 header {
@@ -44,7 +41,6 @@ main h1 {
     margin: 0;
 }
 
-/* KONTENER PRODUKTÓW */
 .basketScroll {
     width: 45%;
     max-height: 55vh;
@@ -55,13 +51,12 @@ main h1 {
 }
 
 .basketScroll::-webkit-scrollbar { height: 18px; }
-.basketScroll::-webkit-scrollbar-track {     background: #1a1a1a; border-radius: 10px; }
-.basketScroll::-webkit-scrollbar-thumb {    background: #444;  border-radius: 10px; border: 2px solid #1a1a1a; }
+.basketScroll::-webkit-scrollbar-track { background: #1a1a1a; border-radius: 10px; }
+.basketScroll::-webkit-scrollbar-thumb { background: #444; border-radius: 10px; border: 2px solid #1a1a1a; }
 .basketScroll::-webkit-scrollbar-thumb:hover { background: #910000; }
 
-/* KARTA PRODUKTU - DOSTOSOWANA DO TRYBU BLOKOWEGO */
 .scrollItem {
-    min-height: 200px; 
+    min-height: 200px;
     width: 100%;
     background-color: #2a2a2c;
     border-radius: 25px;
@@ -77,10 +72,10 @@ main h1 {
 
 .scrollItemsMainDiv {
     flex-grow: 1;
-    padding: 15px 25px; 
+    padding: 15px 25px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; 
+    justify-content: space-between;
 }
 
 .itemFlexContainer {
@@ -91,7 +86,7 @@ main h1 {
 
 .itemInfo {
     flex: 1;
-    max-width: 60%; 
+    max-width: 60%;
 }
 
 .itemName { font-size: 160%; font-weight: bold; margin: 0; }
@@ -120,10 +115,9 @@ main h1 {
     color: #555;
     font-size: 90%;
     box-sizing: border-box;
-    margin-bottom: 5px; 
+    margin-bottom: 5px;
 }
 
-/* PODSUMOWANIE I PRZYCISK ZAPŁAĆ */
 .checkoutSection {
     width: 45%;
     margin-top: 40px;
@@ -146,7 +140,7 @@ main h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     gap: 15px;
 }
 
@@ -167,11 +161,11 @@ main h1 {
 
 .payBtn:hover { background-color: #7a0000; transform: scale(1.02); }
 
-/* STOPKA - ZBUDOWANA IDENTYCZNIE JAK NA TWOIM MAINIE */
 footer {
     width: 100%;
+    margin-top: 30vh;
     background-color: #2a2a2c;
-    height: 25vh; 
+    height: 25vh;
     color: white;
     font-size: 150%;
 }
@@ -179,10 +173,10 @@ footer {
 footer a { text-decoration: none; color: #5f5f5f; }
 footer span { font-weight: bold; color: #910000; }
 
-.supportMain { 
-    display: flex; 
+.supportMain {
+    display: flex;
     flex-direction: row;
-    width: 100%; 
+    width: 100%;
     height: 50%;
 }
 
@@ -227,9 +221,6 @@ footer span { font-weight: bold; color: #910000; }
 .rights hr { height: 10px; width: 100%; color: transparent;}
 .rights .dimP { color: #5f5f5f; font-weight: lighter; margin-top: -20px; }
 
-/* ==========================================================================
-   RESPONSYWNOŚĆ I ZMNIEJSZANIE ELEMENTÓW MOBILNYCH
-   ========================================================================== */
 @media(max-width: 1200px) {
     header img { width: 42vw; }
     .basketHeader, .basketScroll, .checkoutSection { width: 80%; }
@@ -239,6 +230,7 @@ footer span { font-weight: bold; color: #910000; }
     footer {
         height: 25vh;
         font-size: 125%;
+        margin-top: 20vh;
     }
     .paymentImg { width: 5vw; margin-bottom: 10px; }
     .rights { font-size: 80%; margin-bottom: -5px; padding-bottom: 25px; }
@@ -251,13 +243,20 @@ footer span { font-weight: bold; color: #910000; }
         align-items: center;
         text-align: center;
     }
-    .payBtn { width: 100%; padding: 15px; }
+    .totalSummary > div:last-child {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+    .payBtn { width: 100%; padding: 15px; margin: 0 !important; }
     .priceBox p { font-size: 180%; }
+    .priceBox { margin-bottom: 15px; }
 }
 
 @media(max-width: 1000px) {
     header img { width: 50vh; }
-    footer { height: 20vh; font-size: 110%; }
+    footer { height: 20vh; font-size: 110%; margin-top: 15vh;}
     .paymentImg { width: 6vw; margin-bottom: 5px; }
     .rights { font-size: 70%; margin-bottom: -5px; padding-bottom: 25px; }
     .rights .dimP { margin-top: -10px; }
@@ -267,40 +266,38 @@ footer span { font-weight: bold; color: #910000; }
     .basketHeader, .basketScroll, .checkoutSection { width: 90%; }
     .basketHeader { margin: 25px 0 15px 0; }
     
-    /* Zmniejszenie karty produktu */
     .scrollItem { flex-direction: column; height: auto; min-height: fit-content; width: 90%; margin: auto; border-radius: 18px; }
-    .scrollItem img { width: 100%; height: 140px; } /* Mniejsza wysokość zdjęcia */
+    .scrollItem img { width: 100%; height: 140px; }
 
     .scrollItemsMainDiv { padding: 12px 15px; }
-    .itemName { font-size: 120%; } /* Zmniejszona nazwa dania */
+    .itemName { font-size: 120%; }
     .itemDesc { font-size: 90%; }
 
-    /* Odchudzenie dodatków i licznika */
     .itemDetails { height: auto; padding: 8px 15px; font-size: 85%; margin-top: 8px; border-radius: 12px; }
     .adjustAmount { font-size: 70%; width: 38px; padding: 6px 0; }
     
-    /* Odchudzenie sekcji kodu i podsumowania */
     .checkoutSection { margin-top: 25px; gap: 15px; }
     .promoCode input { padding: 10px; font-size: 100%; border-radius: 10px; }
     
     .priceBox p { font-size: 120%; }
     .priceAmount { font-size: 115%; }
     
-    /* Zmniejszenie przycisku zapłaty */
     .payBtn { width: 100%; padding: 10px; font-size: 115%; border-radius: 10px; }
+
+    footer{
+        margin-top: 10vh;
+    }
 }
 
-/* TYPOWE SMARTFONY - MAKSYMALNA OPTYMALIZACJA MOBILNA */
 @media(max-width: 440px) {
     header img { width: 100vw; }
-    footer { height: 25vh; font-size: 90%; }
+    footer { height: 25vh; font-size: 90%; margin-top: 10vh;}
     .paymentImg { width: 10vw; margin-bottom: 5px; }
     .rights { font-size: 80%; margin-bottom: -10px; padding-bottom: 25px; }
     .rights .dimP { margin-top: -10px; }
 
     .basketHeader, .basketScroll, .checkoutSection { width: 92%; }
     
-    /* Jeszcze bardziej kompaktowy widok przedmiotów */
     .scrollItem img { height: 120px; }
     .scrollItemsMainDiv { padding: 10px; }
     .itemName { font-size: 110%; }
@@ -310,7 +307,6 @@ footer span { font-weight: bold; color: #910000; }
     .adjustAmount { width: 34px; padding: 5px 0; gap: 3px; }
     .adjustAmount p { font-size: 110%; }
     
-    /* Ściśnięcie podsumowania płatności */
     .checkoutSection { gap: 12px; }
     .promoCode input { padding: 8px; font-size: 95%; }
     

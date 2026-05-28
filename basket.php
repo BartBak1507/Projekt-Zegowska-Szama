@@ -1,11 +1,9 @@
 <?php
-    // Wczytujemy config na samej górze, żeby sprawdzić sesję ZANIM HTML się załaduje
     require_once('src/config.php');
     if (session_status() === PHP_SESSION_NONE) {
         session_start();
     }
     
-    // Pobieramy Szamsy zalogowanego użytkownika
     $userSzamsy = 0;
     if (isset($_SESSION['id'])) {
         $resultSzamsy = fetchSzamsy($mysqli);
@@ -13,7 +11,6 @@
             $userSzamsy = (int)$rowSzamsy['szamsy'];
         }
     }
-    // Ustawiamy prostą zmienną dla wygody
     $isLoggedIn = isset($_SESSION['id']) ? 'true' : 'false';
 ?>
 
@@ -38,45 +35,9 @@
         </div>
 
         <div class="basketScroll">
-            <div class="scrollItem">
-                <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                <div class="scrollItemsMainDiv">
-                    <div class="itemFlexContainer">
-                        <div class="itemInfo">
-                            <p class="itemName">Nazwa</p>
-                            <p class="itemDesc">Opis Produktu jak i skład produktu</p>
-                        </div>
-                        <div class="adjustAmount">
-                            <div class="topBtn">+</div>
-                            <p>1</p>
-                            <div class="bottomBtn">-</div>
-                        </div>
-                    </div>
-                    <div class="detailsInputDiv">
-                        <input type="text" placeholder="Wpisz szczegóły..." class="itemDetails">
-                    </div>
-                </div>
-            </div>
+            
 
-                        <div class="scrollItem">
-                <img src="produkty/bułka_z_serem.png" alt="artykuł">
-                <div class="scrollItemsMainDiv">
-                    <div class="itemFlexContainer">
-                        <div class="itemInfo">
-                            <p class="itemName">Nazwa</p>
-                            <p class="itemDesc">Opis Produktu jak i skład produktu</p>
-                        </div>
-                        <div class="adjustAmount">
-                            <div class="topBtn">+</div>
-                            <p>1</p>
-                            <div class="bottomBtn">-</div>
-                        </div>
-                    </div>
-                    <div class="detailsInputDiv">
-                        <input type="text" placeholder="Wpisz szczegóły..." class="itemDetails">
-                    </div>
-                </div>
-            </div>
+            
         </div>
 
         <div class="checkoutSection">
@@ -91,7 +52,7 @@
                 <div class="totalSummary">
                     <div class="priceBox">
                         <p>Razem: <span id="totalPrice" class="priceAmount">0.00</span> <span class="currency">zł</span></p>
-                        <p style="font-size: 0.9rem; color: #aaa; margin: 0; margin-top: -15px;">lub <span id="totalSzamsyPrice">0</span> Szamsów</p>
+                        <p style="font-size: 0.9rem; color: #aaa; margin: 0;">lub <span id="totalSzamsyPrice">0</span> Szamsów</p>
                     </div>
                     <div>
                         <button type="submit" id="payMoneyBtn" class="payBtn">ZAPŁAĆ</button>
