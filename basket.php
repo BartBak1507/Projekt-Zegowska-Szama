@@ -1,3 +1,22 @@
+<?php
+    // Wczytujemy config na samej górze, żeby sprawdzić sesję ZANIM HTML się załaduje
+    require_once('src/config.php');
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    
+    // Pobieramy Szamsy zalogowanego użytkownika
+    $userSzamsy = 0;
+    if (isset($_SESSION['id'])) {
+        $resultSzamsy = fetchSzamsy($mysqli);
+        if ($rowSzamsy = mysqli_fetch_assoc($resultSzamsy)) {
+            $userSzamsy = (int)$rowSzamsy['szamsy'];
+        }
+    }
+    // Ustawiamy prostą zmienną dla wygody
+    $isLoggedIn = isset($_SESSION['id']) ? 'true' : 'false';
+?>
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -8,7 +27,7 @@
     <link rel="stylesheet" href="style_dock.css">
     <title>Koszyk - Zegowska Szama</title>
 </head>
-<body>
+<body data-logged-in="<?php echo $isLoggedIn; ?>" data-user-szamsy="<?php echo $userSzamsy; ?>">
     <header>
         <img class="img-fluid" src="files/BANER_LEPSZY.png" alt="baner">
     </header>
@@ -62,14 +81,24 @@
 
         <div class="checkoutSection">
             <div class="promoCode">
-                <input type="text" placeholder="KOD RABATOWY">
+                <input type="text" id="promoInput" placeholder="KOD RABATOWY">
             </div>
-            <div class="totalSummary">
-                <div class="priceBox">
-                    <p>Razem: <span class="priceAmount">4.50</span> <span class="currency">zł</span></p>
+            
+            <form id="orderForm" action="src/process_order.php" method="POST">
+                <input type="hidden" name="cart_data" id="cartDataInput">
+                <input type="hidden" name="payment_method" id="paymentMethodInput" value="money">
+                
+                <div class="totalSummary">
+                    <div class="priceBox">
+                        <p>Razem: <span id="totalPrice" class="priceAmount">0.00</span> <span class="currency">zł</span></p>
+                        <p style="font-size: 0.9rem; color: #aaa; margin: 0; margin-top: -15px;">lub <span id="totalSzamsyPrice">0</span> Szamsów</p>
+                    </div>
+                    <div>
+                        <button type="submit" id="payMoneyBtn" class="payBtn">ZAPŁAĆ</button>
+                        <button type="submit" id="paySzamsyBtn" class="payBtn" style="background: #e67e22; margin-left: 10px;" disabled>SZAMSY</button>
+                    </div>
                 </div>
-                <button class="payBtn">ZAPŁAĆ</button>
-            </div>
+            </form>
         </div>
     </main>
 
@@ -101,7 +130,6 @@
     </footer>
 
     <?php require_once("dockingPanel.php"); ?>
-
 
 </body>
 </html>

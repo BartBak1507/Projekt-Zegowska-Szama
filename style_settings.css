@@ -1,0 +1,133 @@
+:root {
+    --bg-dark: #04050D;
+    --panel: #2a2a2c;
+    --red: #910000;
+    --white: #ffffff;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--white);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.settings-container {
+    background-color: var(--panel);
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    border-radius: 15px; 
+}
+
+.settings-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.settings-header h1 {
+    color: var(--red);
+    font-size: 200%;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 110%;
+    color: #ccc;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--bg-dark); /* Ciemne tło inputa */
+    border: 1px solid var(--red);
+    border-radius: 10px;
+    color: white;
+    font-size: 110%;
+}
+
+.form-group input:focus {
+    outline: none;
+    box-shadow: 0 0 8px var(--red);
+}
+
+.divider {
+    height: 1px;
+    background-color: var(--red);
+    margin: 20px 0;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--red);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 150%;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.submit-btn:active {
+    background-color: var(--panel);
+    border: 1px solid var(--red);
+    color: var(--red);
+}
+
+/* Komunikaty */
+.alert {
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.alert.error { border: 1px solid var(--red); color: var(--red); }
+.alert.success { border: 1px solid white; color: white; }
+
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #5f5f5f;
+    text-decoration: none;
+}
+
+.back-link:hover { color: white; }
+
+/* Mobile */
+@media (max-width: 440px) {
+    body {
+        align-items: flex-start;
+        padding-top: 20px;
+        min-height: auto; 
+    }
+
+    .settings-container {
+        width: 92%; 
+        padding: 20px 15px;
+    }
+
+    .form-group input {
+        width: 100%;
+        box-sizing: border-box; 
+        display: block;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+}

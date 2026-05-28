@@ -31,19 +31,46 @@
             </div>
 
             <div class="profileMenu">
-                <a href="dane_konta.html" class="profileBtn">
-                    <span>Ustawienia</span>
-                    <span>&gt;</span>
-                </a>
-                <a href="historia_transakcji.html" class="profileBtn">
-                    <span>Historia transakcji</span>
-                    <span>&gt;</span>
-                </a>
+                <?php if(!isset($_SESSION['id'])): ?>
+                    <a href="login.php" class="profileBtn">
+                        <span><b>Zaloguj Się</b></span>
+                        <span>&gt;</span>
+                    </a>
+                <?php endif; ?>
+
                 <?php if(isset($_SESSION['id'])): ?>
-                <a href="profile.php?logout=1" class="profileBtn">
-                    <span>Wyloguj</span>
+                    <a href="settings.php" class="profileBtn">
+                        <span>Ustawienia</span>
+                        <span>&gt;</span>
+                    </a>
+                <?php endif; ?>
+
+                <?php if(isset($_SESSION['czy_admin']) && $_SESSION['czy_admin'] == 1): ?>
+
+                <a href="twoje_zamówienia.php" class="profileBtn">
+                    <span>Zarządzaj zamówieniami</span>
                     <span>&gt;</span>
                 </a>
+
+                <a href="twoje_zamówienia.php" class="profileBtn">
+                    <span>Zarządzaj użytkownikami</span>
+                    <span>&gt;</span>
+                </a>
+
+                <?php elseif(isset($_SESSION['id']) && isset($_SESSION['czy_admin']) && $_SESSION['czy_admin'] != 1): ?>
+
+                <a href="twoje_zamówienia.php" class="profileBtn">
+                    <span>Twoje aktywne zamówienia</span>
+                    <span>&gt;</span>
+                </a>
+
+                <?php endif; ?>
+
+                <?php if(isset($_SESSION['id'])): ?>
+                    <a href="profile.php?logout=1" class="profileBtn">
+                        <span><b>Wyloguj</b></span>
+                        <span>&gt;</span>
+                    </a>
                 <?php endif; ?>
             </div>
         </div>

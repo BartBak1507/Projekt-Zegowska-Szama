@@ -114,6 +114,7 @@ span{
     margin: 15px;
     font-weight: bold;
     border: 1px #910000 dashed;
+    border-radius: 10px;
     padding: 5px;
 }
 
@@ -122,6 +123,7 @@ span{
     font-size: 100%;
     margin: 15px;
     font-weight: bold;
+    border-radius: 10px;
     border: 1px white dashed;
     padding: 5px;
 }
