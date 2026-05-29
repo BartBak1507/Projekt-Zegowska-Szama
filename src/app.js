@@ -25,7 +25,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 const productImage = inputEl.getAttribute('data-image');
                 
                 const productName = productItem.querySelector('.topP').textContent.trim();
-                const rawPrice = productItem.querySelector('.bottomP').textContent;
+
+                // Pobieranie ceny z zabezpieczeniem
+                const bottomP = productItem.querySelector('.bottomP');
+                const promoPriceSpan = bottomP.querySelector('.priceValue');
+
+                // Jeśli produkt ma klasę priceValue (jest w promocji), bierzemy cenę z niej. 
+                // Jeśli nie ma (zwykły produkt), bierzemy cały tekst z bottomP.
+                const rawPrice = promoPriceSpan ? promoPriceSpan.textContent : bottomP.textContent;
+
                 const cleanPrice = rawPrice.replace('zł', '').replace(',', '.').trim();
                 const productPrice = parseFloat(cleanPrice);
 

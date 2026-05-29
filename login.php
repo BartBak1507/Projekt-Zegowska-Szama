@@ -11,7 +11,9 @@
 </head>
 <body>
     <header>
-        <img  class="img-fluid" src="files/BANER_LEPSZY.png" alt="baner">
+        <a href="main.php">
+            <img class="img-fluid" src="files/BANER_LEPSZY.png" alt="baner">
+        </a>
     </header>
     <main>
         <img src="files/ikona.png" class="profileIcon" alt="ikona">

@@ -12,7 +12,9 @@
 <body>
     
     <header>
-        <img  class="img-fluid" src="files/BANER_LEPSZY.png" alt="baner">
+        <a href="main.php">
+            <img class="img-fluid" src="files/BANER_LEPSZY.png" alt="baner">
+        </a>
     </header>
     <main>
         <?php if(isset($_SESSION['id'])): ?>
@@ -27,11 +29,42 @@
 
         <div class="searchFor"><img src="files/search_btn.png" alt="lupa"><input type="text" placeholder="Na co masz dziś ochotę?"> </div>
         <div class="scrollable">
+        <?php if(isset($_SESSION['id'])): ?>
+        <section>
+                <p class="sectionName"><b>Dla zalogowanych!!</b><img src="files/hipekCzips.png" alt="hipek z piciem"></p>
+                <div class="horizontalScroll">
+                    
+                    <?php mysqli_data_seek($mainFetchResult, 0); while($row = mysqli_fetch_assoc($mainFetchResult)): ?>
+
+                        <?php if($row['mnożnik_promocji'] < 1): ?>
+                        
+                            <div class="scrollItem">
+                                <input type="hidden" class="productId" value="<?php echo $row['id']; ?>" data-image="produkty/<?php echo $row['zdjęcie']; ?>">
+                                <img src="produkty/<?php echo $row['zdjęcie']; ?>" alt="artykuł">
+                                <p class="topP text-break"><?php echo $row['nazwa']; ?></p>
+                                <p class="bottomP">
+                                    <span class="priceValue">
+                                        <?php echo number_format(floor($row['cena'] * $row['mnożnik_promocji'] * 100) / 100, 2, '.', ''); ?>zł
+                                    </span>
+                                    <s style="color: #aaa; font-size: 0.8em; margin-right: 8px;">
+                                        <?php echo number_format($row['cena'], 2, '.', ''); ?>zł
+                                    </s>
+                                </p>
+                                <button>+</button>
+                            </div>
+
+                        <?php endif; ?>
+
+                    <?php endwhile; ?>
+                    
+                </div>
+            </section>
+            <?php endif; ?>
             <section>
                 <p class="sectionName">Co Nie Co Na Ciepło <img src="files/hipekBurger.png" alt="hipek z burgerem"></p>
                 <div class="horizontalScroll">
 
-                    <?php while($row = mysqli_fetch_assoc($mainFetchResult)): ?>
+                    <?php  mysqli_data_seek($mainFetchResult, 0); while($row = mysqli_fetch_assoc($mainFetchResult)): ?>
 
                         <?php if($row['kategoria'] == 1): ?>
                         
@@ -154,7 +187,7 @@
                 <div class="support">
                     <span>WSPARCIE</span>
                     <a href="o_szamsach.html">O Szamsach</a>
-                    <a href="profile.php">Moje Punkty</a>
+                    <a href="main.php">Moje Punkty</a>
                 </div>
             </div>
             <div class="payment">

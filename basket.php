@@ -26,7 +26,9 @@
 </head>
 <body data-logged-in="<?php echo $isLoggedIn; ?>" data-user-szamsy="<?php echo $userSzamsy; ?>">
     <header>
-        <img class="img-fluid" src="files/BANER_LEPSZY.png" alt="baner">
+        <a href="main.php">
+            <img class="img-fluid" src="files/BANER_LEPSZY.png" alt="baner">
+        </a>
     </header>
 
     <main>
@@ -73,7 +75,7 @@
             <div class="support">
                 <span>WSPARCIE</span>
                 <a href="o_szamsach.html">O Szamsach</a>
-                <a href="profile.php">Moje Punkty</a>
+                <a href="main.php">Moje Punkty</a>
             </div>
         </div>
         <div class="payment">
