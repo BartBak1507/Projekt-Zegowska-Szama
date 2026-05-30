@@ -31,8 +31,8 @@
         <div class="scrollable">
         <?php if(isset($_SESSION['id'])): ?>
         <section>
-                <p class="sectionName"><b>Dla zalogowanych!!</b><img src="files/hipekCzips.png" alt="hipek z piciem"></p>
-                <div class="horizontalScroll">
+                <p class="sectionName" style="color: #910000 !important; border-left: 5px #910000 solid; padding-left: 10px; border-radius: 10px;"><b>Dla zalogowanych!!</b><img src="files/hipekCzips.png" alt="hipek z piciem"></p>
+                <div class="horizontalScroll" >
                     
                     <?php mysqli_data_seek($mainFetchResult, 0); while($row = mysqli_fetch_assoc($mainFetchResult)): ?>
 

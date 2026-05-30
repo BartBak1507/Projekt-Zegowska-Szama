@@ -49,19 +49,19 @@
 
                 <?php if(isset($_SESSION['czy_admin']) && $_SESSION['czy_admin'] == 1): ?>
 
-                <a href="twoje_zamówienia.php" class="profileBtn">
+                <a href="orders.php" class="profileBtn">
                     <span>Zarządzaj zamówieniami</span>
                     <span>&gt;</span>
                 </a>
 
-                <a href="twoje_zamówienia.php" class="profileBtn">
+                <a href="users.php" class="profileBtn">
                     <span>Zarządzaj użytkownikami</span>
                     <span>&gt;</span>
                 </a>
 
                 <?php elseif(isset($_SESSION['id']) && isset($_SESSION['czy_admin']) && $_SESSION['czy_admin'] != 1): ?>
 
-                <a href="twoje_zamówienia.php" class="profileBtn">
+                <a href="yourOrders.php" class="profileBtn">
                     <span>Twoje aktywne zamówienia</span>
                     <span>&gt;</span>
                 </a>
