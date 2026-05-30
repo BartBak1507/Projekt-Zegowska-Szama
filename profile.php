@@ -29,7 +29,11 @@
             </div>
 
             <div class="qrSection">
-                <img src="files/QR.png" alt="Kod QR" class="qrImage">
+                <?php if(isset($_SESSION['id'])): ?>
+                    <img src="files/QR.png" alt="Kod QR" class="qrImage">
+                <?php else: ?>
+                    <img src="files/sadR.png" alt="Kod QR" class="qrImage">
+                <?php endif; ?>
             </div>
 
             <div class="profileMenu">
