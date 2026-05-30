@@ -167,7 +167,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit" class="submit-btn">Zatwierdź zmiany</button>
         </form>
 
-        <a href="main.php" class="back-link">← Powrót na stronę główną</a>
+        <a href="profile.php" class="back-link">← Wróć</a>
     </div>
 
 </body>

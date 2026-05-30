@@ -102,6 +102,153 @@ main {
     border-color: #e74c3c;
 }
 
+.admin-user-badge {
+    background-color: #1c1c1e;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 90%;
+    color: #ffffff;
+    border: 1px solid #444;
+}
+
+.admin-select {
+    background-color: #1c1c1e !important;
+    color: #ffffff !important;
+    border: 2px solid #910000 !important;
+    border-radius: 12px !important;
+    padding: 6px 12px;
+}
+
+.admin-select:focus {
+    box-shadow: 0 0 0 0.25rem rgba(145, 0, 0, 0.25) !important;
+}
+
+.btn-admin-save {
+    background-color: #910000;
+    color: white;
+    font-weight: bold;
+    border-radius: 12px;
+    border: none;
+    padding: 8px 16px;
+    transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+.btn-admin-save:hover {
+    background-color: #b30000;
+    color: white;
+}
+
+.btn-admin-save:active {
+    transform: scale(0.95);
+}
+
+.btn-admin-delete {
+    background-color: #1c1c1e;
+    color: #e74c3c;
+    font-weight: bold;
+    border: 2px solid #e74c3c;
+    border-radius: 12px;
+    padding: 6px 16px;
+    transition: all 0.2s ease;
+}
+
+.btn-admin-delete:hover {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.btn-admin-delete:active {
+    transform: scale(0.95);
+}
+/* Style do pól formularza Szamsów */
+.admin-input-label {
+    background-color: #1c1c1e !important;
+    color: #910000 !important;
+    border: 2px solid #444 !important;
+    border-right: none !important;
+    border-top-left-radius: 12px !important;
+    border-bottom-left-radius: 12px !important;
+    font-weight: bold;
+}
+
+.admin-input-field {
+    background-color: #1c1c1e !important;
+    color: #ffffff !important;
+    border: 2px solid #444 !important;
+    border-top-right-radius: 12px !important;
+    border-bottom-right-radius: 12px !important;
+    font-weight: bold;
+}
+
+.admin-input-field:focus {
+    border-color: #910000 !important;
+    box-shadow: 0 0 0 0.25rem rgba(145, 0, 0, 0.25) !important;
+}
+
+/* Styl dla przełącznika (Switch Bootstrapa) */
+.admin-switch {
+    background-color: #1c1c1e !important;
+    border-color: #444 !important;
+    cursor: pointer;
+    width: 2.5em;
+    height: 1.25em;
+}
+
+.admin-switch:checked {
+    background-color: #910000 !important;
+    border-color: #910000 !important;
+}
+
+.admin-switch:focus {
+    box-shadow: 0 0 0 0.25rem rgba(145, 0, 0, 0.25) !important;
+}
+
+/* Styl dla guzika usuwania użytkownika */
+.btn-admin-delete-user {
+    background-color: #1c1c1e;
+    color: #ff4d4d;
+    font-weight: bold;
+    border: 2px solid #ff4d4d;
+    border-radius: 12px;
+    padding: 6px 16px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn-admin-delete-user:hover {
+    background-color: #ff4d4d;
+    color: white;
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.4);
+}
+
+.btn-admin-delete-user:active {
+    transform: scale(0.95);
+}
+
+/* Żółty znaczek ostrzegawczy wewnątrz guzika */
+.warning-icon {
+    color: #f1c40f;
+    font-weight: 900;
+    margin-right: 4px;
+    transition: color 0.2s ease;
+}
+
+.btn-admin-delete-user:hover .warning-icon {
+    color: white; /* Gdy najeżdżamy myszką, ikonka robi się biała razem z tekstem */
+}
+
+@media(max-width: 576px) {
+    .spec-form-width {
+        width: 100%;
+    }
+    .admin-select {
+        flex-grow: 1;
+    }
+    .btn-admin-delete {
+        width: 100%;
+    }
+}
+
 @media(max-width: 1200px) {
     header img { width: 42vw; }
 }
