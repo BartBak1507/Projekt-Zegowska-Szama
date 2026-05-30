@@ -8,12 +8,12 @@ Nowoczesna aplikacja webowa stworzona na rzecz projektu szkolnego, umożliwiają
 
 ### Wersja Desktopowa (Komputer)
 <p align="center">
-  <img src="" alt="Podgląd Desktop" width="800">
+  <img src="Projekty/Podgląd-Desktop" alt="Podgląd Desktop" width="800">
 </p>
 
 ### Wersja Mobilna (Smartfon)
 <p align="center">
-  <img src="" alt="Podgląd Mobilny" width="300">
+  <img src="Projekty/Podgląd-Mobile" alt="Podgląd Mobilny" width="300">
 </p>
 
 ---
