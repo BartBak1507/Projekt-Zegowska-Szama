@@ -45,11 +45,6 @@ main {
     box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
 
-.textMuted{
-    color: #910000;
-    font-weight: bold;
-}
-
 .order-number {
     color: #ffffff;
     font-size: 130%;
@@ -66,6 +61,11 @@ main {
     border: 1px solid #444;
 }
 
+.textMuted {
+    color: #910000;
+    font-weight: bold;
+}
+
 .order-card .border-bottom {
     border-color: #910000 !important;
 }
@@ -76,6 +76,12 @@ main {
     font-size: 95%;
     border-radius: 12px;
     border: 2px solid;
+}
+
+.status-payment {
+    background-color: rgba(1, 76, 167, 0.15);
+    color: rgb(15, 81, 247);
+    border-color: rgb(15, 81, 247);
 }
 
 .status-pending {

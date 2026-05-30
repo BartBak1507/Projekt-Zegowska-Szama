@@ -1,4 +1,42 @@
-<?php require_once('src/config.php'); ?>
+<?php 
+require_once('src/config.php'); 
+
+if (!isset($_SESSION['id'])) {
+    header("Location: main.php");
+    exit();
+}
+
+$uzytkownik_id = $_SESSION['id'];
+
+$query = "SELECT zo.numer_zamowienia, zo.data_zamowienia, zo.szczegóły, zo.ilość, zo.stan_przygotowania, p.nazwa
+          FROM zamówienia_online zo
+          JOIN produkty p ON zo.produkt_id = p.id
+          WHERE zo.użytkownik_id = ?
+          ORDER BY zo.data_zamowienia DESC";
+
+$stmt = mysqli_prepare($mysqli, $query);
+mysqli_stmt_bind_param($stmt, "i", $uzytkownik_id);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+
+$orders = [];
+while ($row = mysqli_fetch_assoc($result)) {
+    $nr = $row['numer_zamowienia'];
+    if (!isset($orders[$nr])) {
+        $orders[$nr] = [
+            'numer_zamowienia' => $nr,
+            'data_zamowienia' => $row['data_zamowienia'],
+            'status' => $row['stan_przygotowania'],
+            'produkty' => []
+        ];
+    }
+    $orders[$nr]['produkty'][] = [
+        'nazwa' => $row['nazwa'],
+        'szczegoly' => $row['szczegóły'],
+        'ilosc' => $row['ilość']
+    ];
+}
+?>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -25,94 +63,70 @@
             </div>
 
             <div class="row g-4">
-
-                <div class="col-12">
-                    <div class="order-card p-3 p-sm-4">
-                        <div class="row align-items-center g-3 border-bottom pb-3 mb-3">
-                            <div class="col-12 col-md-6 text-center text-md-start">
-                                <span class="order-number d-block d-sm-inline">Zamówienie <b>#ZS-2026-8941</b></span>
-                                <span class="order-date ms-sm-3 d-block d-sm-inline">30.05.2026, 14:20</span>
-                            </div>
-                            <div class="col-12 col-md-6 text-center text-md-end">
-                                <span class="badge status-pending px-3 py-2 text-uppercase">W realizacji</span>
-                            </div>
-                        </div>
-
-                        <div class="row g-3 align-items-center mb-1">
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="d-flex align-items-center p-2 item-mini-card">
-                                    <img src="produkty/pizza.png" alt="Zegowska Szama" class="img-fluid rounded me-3" style="width: 60px; height: 60px; object-fit: cover;">
-                                    <div>
-                                        <h6 class="mb-0 text-white fw-bold">Pizza Zegowska (Duża)</h6>
-                                        <small class="textMuted">Ilość: 1 • Szczegóły: bez cebuli</small>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="d-flex align-items-center p-2 item-mini-card">
-                                    <img src="produkty/cola.png" alt="Zegowska Szama" class="img-fluid rounded me-3" style="width: 60px; height: 60px; object-fit: cover;">
-                                    <div>
-                                        <h6 class="mb-0 text-white fw-bold">Coca-Cola 0.5L</h6>
-                                        <small class="textMuted">Ilość: 2 • Szczegóły: zimna</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <?php if (empty($orders)): ?>
+                    <div class="col-12 text-center my-5">
+                        <h3 class="text-muted">Nie złożyłeś jeszcze żadnych zamówień.</h3>
                     </div>
-                </div>
+                <?php else: ?>
+                    <?php foreach ($orders as $order): 
+                        $badge_class = 'status-payment';
+                        $status_text = 'Płatność zaakceptowana';
 
-                <div class="col-12">
-                    <div class="order-card p-3 p-sm-4">
-                        <div class="row align-items-center g-3 border-bottom pb-3 mb-3">
-                            <div class="col-12 col-md-6 text-center text-md-start">
-                                <span class="order-number d-block d-sm-inline">Zamówienie <b>#ZS-2026-7712</b></span>
-                                <span class="order-date ms-sm-3 d-block d-sm-inline">28.05.2026, 19:05</span>
-                            </div>
-                            <div class="col-12 col-md-6 text-center text-md-end">
-                                <span class="badge status-delivered px-3 py-2 text-uppercase">Dostarczone</span>
-                            </div>
-                        </div>
+                        $db_status = strtolower(trim($order['status']));
 
-                        <div class="row g-3 align-items-center mb-1">
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="d-flex align-items-center p-2 item-mini-card">
-                                    <img src="produkty/burger.png" alt="Zegowska Szama" class="img-fluid rounded me-3" style="width: 60px; height: 60px; object-fit: cover;">
-                                    <div>
-                                        <h6 class="mb-0 text-white fw-bold">Giga Burger Szama</h6>
-                                        <small class="textMuted">Ilość: 1 • Szczegóły: dobrze wysmażony</small>
+                        if ($db_status === 'w realizacji') {
+                            $badge_class = 'status-pending';
+                            $status_text = 'W realizacji';
+                        } elseif ($db_status === 'gotowe do odbioru' || $db_status === 'dostarczone' || $db_status === 'gotowe') {
+                            $badge_class = 'status-delivered';
+                            $status_text = 'Gotowe do odbioru';
+                        } elseif ($db_status === 'anulowane') {
+                            $badge_class = 'status-cancelled';
+                            $status_text = 'Anulowane';
+                        }
+
+                        $date_formatted = '';
+                        if (!empty($order['data_zamowienia'])) {
+                            $date_obj = new DateTime($order['data_zamowienia']);
+                            $date_formatted = $date_obj->format('d.m.Y, H:i');
+                        }
+                    ?>
+                        <div class="col-12">
+                            <div class="order-card p-3 p-sm-4">
+                                <div class="row align-items-center g-3 border-bottom pb-3 mb-3">
+                                    <div class="col-12 col-md-6 text-center text-md-start">
+                                        <span class="order-number d-block d-sm-inline">Zamówienie <b>#<?= htmlspecialchars($order['numer_zamowienia']) ?></b></span>
+                                        <?php if (!empty($date_formatted)): ?>
+                                            <span class="order-date ms-sm-3 d-block d-sm-inline"><?= $date_formatted ?></span>
+                                        <?php endif; ?>
                                     </div>
+                                    <div class="col-12 col-md-6 text-center text-md-end">
+                                        <span class="badge <?= $badge_class ?> px-3 py-2 text-uppercase"><?= $status_text ?></span>
+                                    </div>
+                                </div>
+
+                                <div class="row g-3 align-items-center mb-1">
+                                    <?php foreach ($order['produkty'] as $product): ?>
+                                        <div class="col-12 col-sm-6 col-lg-4">
+                                            <div class="p-3 item-mini-card">
+                                                <div>
+                                                    <h6 class="mb-1 text-white fw-bold"><?= htmlspecialchars($product['nazwa']) ?></h6>
+                                                    <small class="textMuted d-block">Ilość: <?= (int)$product['ilosc'] ?></small>
+                                                    <?php if (!empty($product['szczegoly'])): ?>
+                                                        <small class="textMuted d-block mt-1">Szczegóły: <?= htmlspecialchars($product['szczegoly']) ?></small>
+                                                    <?php endif; ?>
+                                                    <?php if (empty($product['szczegoly'])): ?>
+                                                        <small class="textMuted d-block mt-1">Szczegóły: --Brak--</small>
+                                                    <?php endif; ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="col-12">
-                    <div class="order-card p-3 p-sm-4">
-                        <div class="row align-items-center g-3 border-bottom pb-3 mb-3">
-                            <div class="col-12 col-md-6 text-center text-md-start">
-                                <span class="order-number d-block d-sm-inline">Zamówienie <b>#ZS-2026-6110</b></span>
-                                <span class="order-date ms-sm-3 d-block d-sm-inline">15.05.2026, 12:00</span>
-                            </div>
-                            <div class="col-12 col-md-6 text-center text-md-end">
-                                <span class="badge status-cancelled px-3 py-2 text-uppercase">Anulowane</span>
-                            </div>
-                        </div>
-
-                        <div class="row g-3 align-items-center mb-1">
-                            <div class="col-12 col-sm-6 col-lg-4">
-                                <div class="d-flex align-items-center p-2 item-mini-card">
-                                    <img src="produkty/cappuccino.png" alt="Zegowska Szama" class="img-fluid rounded me-3" style="width: 60px; height: 60px; object-fit: cover;">
-                                    <div>
-                                        <h6 class="mb-0 text-white fw-bold">Kebab w Cienkim</h6>
-                                        <small class="textMuted">Ilość: 1 • Szczegóły: sos ostry</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                    <?php endforeach; ?>
+                <?php endif; ?>
             </div>
         </div>
     </main>
