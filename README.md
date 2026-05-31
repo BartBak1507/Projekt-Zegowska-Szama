@@ -56,6 +56,13 @@ Nowoczesna aplikacja webowa stworzona na rzecz projektu szkolnego, umożliwiają
 
 ---
 
+## Dokumentacja Projektu
+
+Pełna, szczegółowa dokumentacja techniczna systemu, opis wymagań oraz instrukcja obsługi aplikacji znajdują się w pliku w głównym katalogu repozytorium:
+- **[Dokumentacja-Zegowska-Szama.txt](Dokumentacja-Zegowska-Szama.txt)**
+
+---
+
 ## Zarządzanie Projektem
 
 Prace nad aplikacją, podział zadań oraz postęp prac deweloperskich zarządzane są przy użyciu dedykowanej tablicy:
