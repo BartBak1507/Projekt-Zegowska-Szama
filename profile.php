@@ -63,6 +63,11 @@
                     <span>&gt;</span>
                 </a>
 
+                <a href="products.php" class="profileBtn">
+                    <span>Zarządzaj produktami</span>
+                    <span>&gt;</span>
+                </a>
+
                 <?php elseif(isset($_SESSION['id']) && isset($_SESSION['czy_admin']) && $_SESSION['czy_admin'] != 1): ?>
 
                 <a href="yourOrders.php" class="profileBtn">
