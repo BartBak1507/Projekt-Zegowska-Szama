@@ -61,8 +61,11 @@ Opis tabel i relacji w bazie danych:
 * Logowanie i Rejestracja: Proste i czytelne formularze. Jak wpiszesz złe hasło albo zajęty login, strona od razu wyświetli komunikat, co jest nie tak.
 * Koszyk: Podsumowanie zakupów. Widać tu listę wybranych rzeczy, ich ilość, cenę oraz duży przycisk do finalizacji zamówienia.
 * Profil użytkownika: Pokazuje konto ucznia i jego kod QR, który skanuje się w sklepiku, żeby zbierać punkty "szamsy". Ma też szybkie linki do aktywnych zamówień, ustawień i wylogowania. 
-* Panel administratora (Wgląd Admina):  
-
+* Panel administratora (Wgląd Admina): Specjalna strefa dla obsługi sklepiku, do której dostęp otrzymują użytkownicy z uprawnieniami administratora. Panel dzieli się na cztery główne widoki zarządzania:
+  - Menu główne admina: Wyświetla profil z kodem QR oraz intuicyjne przyciski kierujące do poszczególnych sekcji zarządzania oraz opcję wylogowania.
+  - Zarządzanie zamówieniami: Widok prezentujący wpadające od uczniów zamówienia (zawierający unikalny numer #ZAM, datę, godzinę oraz login zamawiającego). Admin widzi dokładną listę produktów, ich ilość oraz status transakcji (np. "Płatność zaakceptowana"), z możliwością modyfikacji ("Zmień") lub skasowania ("Usuń") zamówienia.
+  - Zarządzanie użytkownikami: Panel z listą wszystkich zarejestrowanych kont. Pozwala na bieżąco modyfikować liczbę punktów lojalnościowych ("szamsów") każdego ucznia, nadawać lub odbierać uprawnienia administratora za pomocą przełącznika "Admin", a także całkowicie usuwać profile przyciskiem "Usuń Konto".
+  - Zarządzanie produktami: Praktyczny konfigurator całego asortymentu sklepiku. Każdy produkt ma swoją dedykowaną kartę, na której admin może zmienić jego nazwę, ustawić cenę w złotówkach, przełączyć status dostępności (np. "Dostępny") oraz przypisać procentowy rabat w polu "Przecena (%)", co automatycznie aktualizuje ofertę na stronie głównej.
 
 6. INSTRUKCJA OBSŁUGI (JAK KORZYSTAĆ)
 ----------------------------------------------------------------------
