@@ -178,6 +178,7 @@ footer span { font-weight: bold; color: #910000; }
     footer {
         height: 25vh;
         font-size: 125%;
+        margin-top: 13vh;
     }
     .paymentImg { width: 5vw; margin-bottom: 10px; }
     .rights { font-size: 80%; margin-bottom: -5px; padding-bottom: 25px; }

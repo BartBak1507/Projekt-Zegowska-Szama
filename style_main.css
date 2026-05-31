@@ -250,6 +250,7 @@ footer{
     height: 25vh;
     color: white;
     font-size: 150%;
+    margin-top: 12vh;
 }
 
 footer a{
@@ -394,6 +395,7 @@ footer span{
     }
 
     footer{
+        margin-top: 30vh;
         height: 25vh;
         font-size: 125%;
     }

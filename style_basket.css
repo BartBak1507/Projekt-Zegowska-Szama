@@ -230,7 +230,7 @@ footer span { font-weight: bold; color: #910000; }
     footer {
         height: 25vh;
         font-size: 125%;
-        margin-top: 20vh;
+        margin-top: 28vh;
     }
     .paymentImg { width: 5vw; margin-bottom: 10px; }
     .rights { font-size: 80%; margin-bottom: -5px; padding-bottom: 25px; }
@@ -256,7 +256,7 @@ footer span { font-weight: bold; color: #910000; }
 
 @media(max-width: 1000px) {
     header img { width: 50vh; }
-    footer { height: 20vh; font-size: 110%; margin-top: 15vh;}
+    footer { height: 20vh; font-size: 110%; margin-top: 22vh;}
     .paymentImg { width: 6vw; margin-bottom: 5px; }
     .rights { font-size: 70%; margin-bottom: -5px; padding-bottom: 25px; }
     .rights .dimP { margin-top: -10px; }

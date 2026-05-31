@@ -4,7 +4,7 @@
             <img src="files/home_btn.png" alt="guzik z domkiem">
             <p>Start</p>
         </a>
-        <a href="main.php" class="dock">
+        <a href="main.php#search" class="dock">
             <img src="files/search_btn.png" alt="guzik z lupką">
             <p>Szukaj</p>
         </a>
