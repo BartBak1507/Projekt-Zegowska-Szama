@@ -53,7 +53,7 @@ Nowoczesna aplikacja webowa stworzona na rzecz projektu szkolnego, umożliwiają
 - **Środowisko serwerowe:** XAMPP (Apache, MySQL)
 - **IDE:** Visual Studio Code
 - **Projektowanie bazy:** DBDesigner
-- **Sugerowane przeglądarki:** Google Chrome, Microsoft Edge, Mozilla Firefox, Opera, Safari
+- **Sugerowane przeglądarki:** Google Chrome, Microsoft Edge, Mozilla Firefox, Opera, Safari, Brave
 ---
 
 ## Dokumentacja Projektu
