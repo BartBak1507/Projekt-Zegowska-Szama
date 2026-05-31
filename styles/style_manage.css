@@ -296,6 +296,35 @@ main {
     transform: scale(0.96);
 }
 
+.beta-container {
+    text-align: center;
+    padding: 20px 0;
+}
+        
+.beta-badge {
+    display: inline-block;
+    background-color: rgba(145, 0, 0, 0.15);
+    color: #910000;
+    border: 2px solid #910000;
+    padding: 6px 16px;
+    font-weight: bold;
+    font-size: 85%;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.btn-wrapper {
+    margin-top: 40px;
+}
+
+/* Stylizacja elementu blokowego dla odnośnika powrotu */
+.mailBtn.block-btn {
+    display: inline-block;
+    box-sizing: border-box;
+}
+
 @media(max-width: 576px) {
     .spec-form-width {
         width: 100%;
