@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2026 at 10:54 PM
+-- Generation Time: May 31, 2026 at 08:14 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -80,7 +80,7 @@ INSERT INTO `produkty` (`id`, `nazwa`, `cena`, `kategoria`, `dostępność`, `mn
 (16, 'espresso', 1.5, 2, 1, 1, 'espresso.png'),
 (17, 'espresso macchiato', 2.5, 2, 1, 0.9, 'espresso_macchiato.png'),
 (18, 'kawa czarna', 2, 2, 1, 1, 'kawa_czarna.png'),
-(19, 'kawa biała', 2.5, 2, 1, 1, 'kawa_biała.png'),
+(19, 'kawa biała', 2.5, 2, 1, 0.1, 'kawa_biała.png'),
 (20, 'cappuccino', 3.5, 2, 1, 1, 'cappuccino.png'),
 (21, 'latte macchiato', 3.5, 2, 1, 1, 'latte_macchiato.png'),
 (22, 'herbata', 2.5, 2, 1, 1, 'herbata.png'),
@@ -120,10 +120,8 @@ CREATE TABLE `użytkownik` (
 --
 
 INSERT INTO `użytkownik` (`id`, `mail`, `hasło`, `nazwa_użytkownika`, `czy_admin`, `token`, `szamsy`) VALUES
-(1, 'janekKabanek@mail.com', '$2y$10$w0T8kGjndJX2eFdrvYWf1.phwwx3u24jviP7pJ/Aq2N/NiJfexms2', 'janekKabanek', 0, NULL, 108),
-(2, 'janekKabanek2@mail.com', '$2y$10$erl42MBNl/gXSGU83SDBHO2.Eb.AbbGZb5lBjus0knQIA3zexqnPO', 'janekKabanek2', 0, NULL, 0),
-(3, 'janekKabanek3@mail.com', '$2y$10$EGcnaSubmFqHDs7vw9e8zuV4QyTSPJ5CB.t6t7hTBe7OK4UjQgal2', 'janekKabanek3', 0, NULL, 0),
-(4, 'jakKaban@mail.com', '$2y$10$Q3HKPa.Jcme6PkOWn2pji.0xCF9n7SkmQku0Gxi9r.BEepitB6Z3e', 'InnyJanek', 0, NULL, 110444);
+(5, 'kowalski.jan@mail.com', '$2y$10$/mW.6CNmCmtcjfN.NK0Dz.dC1WcPDdO9iKap2UTI.khXvu9C7vKK2', 'JanKowalski', 1, NULL, 0),
+(6, 'Jan_Kowalski_Szams@mail.com', '$2y$10$9VkGSxk4rJVoxnoP/bd81.kNP6krh6gFCNZtGife3DaKTFeyLImgm', 'JanKowalskiSzams', 1, NULL, 2000000);
 
 -- --------------------------------------------------------
 
@@ -138,24 +136,9 @@ CREATE TABLE `zamówienia_online` (
   `produkt_id` int(10) UNSIGNED NOT NULL,
   `szczegóły` varchar(1000) DEFAULT NULL,
   `ilość` int(11) NOT NULL DEFAULT 0,
-  `stan_przygotowania` varchar(25) DEFAULT 'Płatność zaakceptowana'
+  `stan_przygotowania` varchar(25) DEFAULT 'Płatność zaakceptowana',
+  `data_zamowienia` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
-
---
--- Dumping data for table `zamówienia_online`
---
-
-INSERT INTO `zamówienia_online` (`id`, `użytkownik_id`, `numer_zamowienia`, `produkt_id`, `szczegóły`, `ilość`, `stan_przygotowania`) VALUES
-(1, 1, 'ZAM-1779995852-543', 5, 'dużo masła', 2, 'Płatność zaakceptowana'),
-(2, 1, 'ZAM-1779995852-543', 6, '', 2, 'Płatność zaakceptowana'),
-(3, 4, 'ZAM-1779996053-446', 2, '', 1, 'Płatność zaakceptowana'),
-(4, 4, 'ZAM-1779996053-446', 21, '', 1, 'Płatność zaakceptowana'),
-(5, 4, 'ZAM-1779996053-446', 35, '', 1, 'Płatność zaakceptowana'),
-(6, 4, 'ZAM-1779996707-986', 5, '', 1, 'Płatność zaakceptowana'),
-(7, 4, 'ZAM-1779996707-986', 6, '', 2, 'Płatność zaakceptowana'),
-(8, 1, 'ZAM-1780087977-603', 9, '', 4, 'Płatność zaakceptowana'),
-(9, 1, 'ZAM-1780088012-137', 30, 'dużo cynamonu', 2, 'Płatność zaakceptowana'),
-(10, 1, 'ZAM-1780088012-137', 6, '', 1, 'Płatność zaakceptowana');
 
 --
 -- Indexes for dumped tables
@@ -202,19 +185,19 @@ ALTER TABLE `kategorie`
 -- AUTO_INCREMENT for table `produkty`
 --
 ALTER TABLE `produkty`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `użytkownik`
 --
 ALTER TABLE `użytkownik`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `zamówienia_online`
 --
 ALTER TABLE `zamówienia_online`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Constraints for dumped tables
