@@ -18,6 +18,14 @@ Nowoczesna aplikacja webowa stworzona na rzecz projektu szkolnego, umożliwiają
 
 ---
 
+## Schemat bazy danych (ERD)
+
+<p align="center">
+  <img src="Projekty/Zegowska-Szama-DiagramERD.png" alt="Schemat relacji bazy danych" width="800">
+</p>
+
+---
+
 ## Główne Funkcje
 
 - **Autentykacja użytkowników:** Bezpieczny system rejestracji i logowania.
@@ -33,15 +41,18 @@ Nowoczesna aplikacja webowa stworzona na rzecz projektu szkolnego, umożliwiają
 - **HTML5**
 - **CSS3**
 - **JavaScript**
-- **Bootstrap**
-- **Baza danych:** MySQL
+- **Bootstrap 5**
+- **PHP** (Logika aplikacji / Backend)
+- **Baza danych:** MySQL / MariaDB
 
 ---
 
 ## Środowisko deweloperskie
 
 - **System operacyjny:** Windows 10 / 11
+- **Środowisko serwerowe:** XAMPP (Apache, MySQL)
 - **IDE:** Visual Studio Code
+- **Projektowanie bazy:** DBDesigner
 
 ---
 
@@ -58,4 +69,3 @@ Projekt został stworzony i jest rozwijany przez:
 
 - [@Bartosz Bąk](https://www.github.com/BartBak1507) – Współautor projektu, rozwój aplikacji.
 - [@Bartosz Bachul](https://www.github.com/bart-tek08) – Współautor projektu, rozwój aplikacji.
-   [http://twoja-domena.pl/main.php](http://twoja-domena.pl/main.php)
