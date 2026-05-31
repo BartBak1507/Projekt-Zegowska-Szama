@@ -34,7 +34,7 @@ To, jak aplikacja została wykonana:
 * Bezpieczeństwo: Hasła w bazie danych nie są zapisane czystym tekstem, tylko zaszyfrowane przez funkcję password_hash. Dodatkowo kod chroni przed wstrzykiwaniem złośliwego kodu do bazy (SQL Injection).
 * Technologie: System działa na bazie języka PHP (Backend) połączonego z internetową bazą danych MySQL/MariaDB.
 * Narzędzia: Do lokalnego uruchomienia i przetestowania kodu oraz bazy użyliśmy środowiska XAMPP, a schemat relacji tabel został zaprojektowany w programie DBDesigner. 
-
+* Kompatybilność i przeglądarki: Aplikacja została zoptymalizowana i przetestowana pod kątem poprawnego działania na najnowszych wersjach przeglądarek: Google Chrome, Microsoft Edge, Mozilla Firefox, Safari.
 
 4. OPIS TECHNICZNY (JAK TO JEST ZROBIONE)
 ----------------------------------------------------------------------
