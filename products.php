@@ -60,82 +60,8 @@ $products_result = mysqli_query($mysqli, $products_query);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="style_manage.css"> 
+    <link rel="stylesheet" href="styles/style_manage.css"> 
     <title>Zarządzanie Produktami - Zegowska Szama</title>
-    <style>
-        /* Nadpisanie domyślnych stylów Bootstrap dla idealnego dopasowania do Twoich screenów */
-        body {
-            background-color: #030708 !important; /* Bardzo ciemne, niemal czarne tło */
-            color: #ffffff !important;
-        }
-        
-        .product-box {
-            background-color: #212529 !important; /* Ciemnografitowe tło kafelka użytkownika */
-            border: 2px solid #910000 !important; /* Charakterystyczna czerwona ramka Szamy */
-            border-radius: 20px !important; /* Zaokrąglone rogi jak w panelu użytkowników */
-            padding: 20px !important;
-            transition: transform 0.2s;
-        }
-
-        .product-box:hover {
-            transform: scale(1.01);
-        }
-
-        .new-product-box {
-            background-color: #111416 !important;
-            border: 2px dashed #ffc107 !important; /* Przerywana żółto-pomarańczowa linia */
-            border-radius: 20px !important;
-            padding: 20px !important;
-        }
-
-        /* Stylizacja inputów, aby wtapiały się w ciemne tło */
-        .custom-input {
-            background-color: #16191c !important;
-            border: 1px solid #444 !important;
-            color: #fff !important;
-            border-radius: 8px !important;
-        }
-
-        .custom-input:focus {
-            border-color: #910000 !important;
-            box-shadow: 0 0 0 0.25rem rgba(145, 0, 0, 0.25) !important;
-            color: #fff !important;
-        }
-
-        /* Przyciski w kolorystyce Zegowskiej Szamy */
-        .btn-szama-red {
-            background-color: #910000 !important;
-            color: #ffffff !important;
-            border: none !important;
-            font-weight: bold !important;
-            border-radius: 10px !important;
-            padding: 8px 16px !important;
-        }
-
-        .btn-szama-red:hover {
-            background-color: #b00000 !important;
-        }
-
-        .btn-szama-save {
-            background-color: #910000 !important;
-            color: white !important;
-            font-weight: bold !important;
-            border: 1px solid #ff4d4d !important;
-            border-radius: 10px !important;
-        }
-
-        .btn-szama-save:hover {
-            background-color: #b00000 !important;
-            box-shadow: 0 0 8px rgba(255, 77, 77, 0.4);
-        }
-
-        .input-group-text-custom {
-            background-color: #16191c !important;
-            border: 1px solid #444 !important;
-            color: #ff4d4d !important;
-            font-weight: bold;
-        }
-    </style>
 </head>
 <body style="padding-bottom: 120px;">
 
@@ -147,7 +73,7 @@ $products_result = mysqli_query($mysqli, $products_query);
 
     <div class="container">
         <div class="d-flex justify-content-between align-items-center mb-4 px-2">
-            <h1 class="fw-bold" style="letter-spacing: 1px; font-size: 2rem;">ZARZĄDZANIE PRODUKTAMI</h1>
+            <h1 class="fw-bold orders-title" style="letter-spacing: 1px; font-size: 2rem;">ZARZĄDZANIE PRODUKTAMI</h1>
         </div>
 
         <?php if(isset($_GET['success'])): ?>
@@ -195,14 +121,14 @@ $products_result = mysqli_query($mysqli, $products_query);
                                 <div class="mb-4">
                                     <label class="form-label small fw-bold text-white-50 mb-1">Przecena (%):</label>
                                     <div class="input-group">
-                                        <span class="input-group-text input-group-text-custom">Rabat</span>
-                                        <input type="number" name="przecena_procent" min="0" max="100" class="form-control custom-input text-center fw-bold" value="<?php echo $wyswietlany_procent; ?>" placeholder="0">
-                                        <span class="input-group-text input-group-text-custom" style="color: #fff !important;">%</span>
+                                        <span class="input-group-text admin-input-label py-1 px-3">Rabat</span>
+                                        <input type="number" name="przecena_procent" min="0" max="100" class="form-control admin-input-field text-center" value="<?php echo $wyswietlany_procent; ?>" placeholder="0">
+                                        <span class="input-group-text admin-input-field py-1 px-3" style="border-left: none !important; border-top-left-radius: 0 !important; border-bottom-left-radius: 0 !important;">%</span>
                                     </div>
                                 </div>
                             </div>
 
-                            <button type="submit" name="update_product" class="btn btn-szama-save w-100 py-2">Zapisz zmiany</button>
+                            <button type="submit" name="update_product" class="btn-szama-save w-100 py-2">Zapisz zmiany</button>
                         </form>
                     </div>
                 </div>
@@ -213,24 +139,24 @@ $products_result = mysqli_query($mysqli, $products_query);
                     <form action="products.php" method="POST" class="h-100 d-flex flex-column justify-content-between">
                         <div>
                             <div class="d-flex align-items-center mb-3">
-                                <span class="badge bg-warning text-dark me-2 fs-6 fw-bold">+</span>
-                                <h5 class="m-0 text-warning fw-bold" style="letter-spacing: 0.5px;">Nowy Produkt</h5>
+                                <span class="badge status-pending me-2 px-2 py-1" style="background-color: rgba(145,0,0,0.2) !important; color: #ffffff; border-color: #910000;">+</span>
+                                <h5 class="m-0 new-product-title">Nowy Produkt</h5>
                             </div>
-                            <hr style="border-color: #ffc107 !important; margin-top: 0; margin-bottom: 15px;">
+                            <hr class="border-bottom" style="margin-top: 10px; margin-bottom: 15px; opacity: 1;">
 
                             <div class="mb-3">
-                                <label class="form-label small fw-bold text-warning mb-1">Nazwa:</label>
-                                <input type="text" name="nazwa" class="form-control custom-input" placeholder="np. Tost z Salami" style="border-color: #555 !important;" required>
+                                <label class="form-label small fw-bold text-white-50 mb-1">Nazwa:</label>
+                                <input type="text" name="nazwa" class="form-control custom-input" placeholder="np. Tost z Salami" required>
                             </div>
 
                             <div class="mb-3">
-                                <label class="form-label small fw-bold text-warning mb-1">Cena początkowa (zł):</label>
-                                <input type="number" name="cena" step="0.01" class="form-control custom-input" placeholder="0.00" style="border-color: #555 !important;" required>
+                                <label class="form-label small fw-bold text-white-50 mb-1">Cena początkowa (zł):</label>
+                                <input type="number" name="cena" step="0.01" class="form-control custom-input" placeholder="0.00" required>
                             </div>
 
                             <div class="mb-4">
-                                <label class="form-label small fw-bold text-warning mb-1">Kategoria menu:</label>
-                                <select name="kategoria" class="form-select custom-input" style="border-color: #555 !important;" required>
+                                <label class="form-label small fw-bold text-white-50 mb-1">Kategoria menu:</label>
+                                <select name="kategoria" class="form-select custom-input" required>
                                     <option value="1">Ciepłe</option>
                                     <option value="2">Ciepłe napoje</option>
                                     <option value="3">Napoje</option>
@@ -240,7 +166,7 @@ $products_result = mysqli_query($mysqli, $products_query);
                             </div>
                         </div>
 
-                        <button type="submit" name="add_product" class="btn btn-warning text-dark w-100 py-2 fw-bold rounded-3 shadow">Dodaj do menu</button>
+                        <button type="submit" name="add_product" class="btn-szama-save w-100 py-2">Dodaj do menu</button>
                     </form>
                 </div>
             </div>

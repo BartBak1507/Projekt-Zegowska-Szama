@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="style_main.css">
-    <link rel="stylesheet" href="style_dock.css">
+    <link rel="stylesheet" href="styles/style_main.css">
+    <link rel="stylesheet" href="styles/style_dock.css">
     <title>Zegowska Szama</title>
 </head>
 <body data-logged-in="<?php echo isset($_SESSION['id']) ? 'true' : 'false'; ?>" data-user-szamsy="<?php if(isset($_SESSION['id'])) { $res = fetchSzamsy($mysqli); $r = mysqli_fetch_assoc($res); echo $r['szamsy']; } else { echo 0; } ?>">
