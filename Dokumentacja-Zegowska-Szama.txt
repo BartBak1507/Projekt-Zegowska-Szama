@@ -1,0 +1,213 @@
+DOKUMENTACJA PROJEKTU: Projekt-Zegowska-Szama
+
+
+1. STRONA TYTUŁOWA
+----------------------------------------------------------------------
+* Tytuł projektu: Projekt-Zegowska-Szama
+* Autorzy (kto robił): Bartosz Bąk, Bartosz Bachul
+* Czas pracy nad projektem: od 23.03.2026 do 31.05.2026
+* Status: Wersja podstawowa zakończona (system gotowy do rozbudowy)
+* Dalszy rozwój: Projekt zrobiony jako baza pod przyszłe udoskonalenia
+* Przeznaczenie: Projekt na ocenę / system do zamawiania w sklepiku 
+
+
+2. OGÓLNY OPIS PROJEKTU
+----------------------------------------------------------------------
+Zegowska-szama to strona internetowa zrobiona specjalnie dla naszej społeczności szkolnej. Chodziło o to, żeby każdy uczeń i nauczyciel mógł na spokojnie sprawdzić w telefonie, co dzisiaj można kupić w sklepiku, ile to kosztuje i jakie są promocje. 
+
+Głównym plusem aplikacji jest to, że pozwala zamawiać jedzenie online ("szamę") jeszcze przed dzwonkiem na przerwę. Dzięki temu nie trzeba stać w wielkich kolejkach pod okienkiem, a obsługa sklepiku wie wcześniej, ile buł czy drożdżówek ma przygotować. Strona działa i na komputerach, i na smartfonach, a do tego ma ciemny motyw, żeby nie raziła w oczy na lekcjach.
+
+
+3. CO SYSTEM MUSI ROBIĆ (WYMAGANIA)
+----------------------------------------------------------------------
+To, co po prostu działa w aplikacji (Funkcje):
+* Zakładanie konta i logowanie: Każdy może założyć profil. System sprawdza, czy login nie jest zajęty, a hasło jest bezpiecznie szyfrowane. Są dwa typy kont: zwykły Uczeń oraz Admin (dla obsługi sklepiku).
+* Profil użytkownika: Po zalogowaniu można edytować swoje dane albo zmienić hasło.
+* Przeglądanie jedzenia: Na stronie głównej widać całe menu z podziałem na kategorie, ceny i aktualne przeceny.
+* Koszyk: Standardowy koszyk zakupowy. Dodajesz rzeczy, zmieniasz ich ilość albo usuwasz, jak się rozmyślisz. Wszystko liczy się na bieżąco.
+* Składanie zamówień: Klikasz "Zamów" i informacja o zakupach leci prosto do bazy danych.
+* Panel dla sklepiku (Admina): Osoba w sklepiku widzi listę wszystkich zamówień, które wpadły od uczniów, i może zarządzać promocjami.
+
+To, jak aplikacja została wykonana:
+* Wygląd: Strona idealnie dopasowuje się do ekranu telefonu, tabletu i komputera (użyliśmy Bootstrapa 5).
+* Szybkość: Wszystko ładuje się szybko, a formularze PHP sprawnie przesyłają dane.
+* Bezpieczeństwo: Hasła w bazie danych nie są zapisane czystym tekstem, tylko zaszyfrowane przez funkcję password_hash. Dodatkowo kod chroni przed wstrzykiwaniem złośliwego kodu do bazy (SQL Injection).
+* Technologie: System działa na bazie języka PHP (Backend) połączonego z internetową bazą danych MySQL/MariaDB.
+* Narzędzia: Do lokalnego uruchomienia i przetestowania kodu oraz bazy użyliśmy środowiska XAMPP, a schemat relacji tabel został zaprojektowany w programie DBDesigner. 
+
+
+4. OPIS TECHNICZNY (JAK TO JEST ZROBIONE)
+----------------------------------------------------------------------
+Projekt działa w klasycznej architekturze klient-serwer. Wszystko podzieliliśmy logicznie na warstwy:
+
+1. Wygląd strony (Frontend): Zrobiony w czystym HTML5 i ostylowany za pomocą CSS3 oraz frameworka Bootstrap 5. Dzięki temu wszystko ładnie wygląda i samo dopasowuje się do telefonów. Dorzuciliśmy też skrypty JavaScript, żeby koszyk działał na bieżąco.
+2. Logika aplikacji (Backend): Napisana w języku PHP. Odpowiada za bezpieczne odbieranie danych z formularzy, rejestrację, sprawdzanie czy hasło się zgadza i pilnowanie sesji użytkownika, żeby nikt nieuprawniony nie buszował po koncie.
+3. Baza danych (MySQL): Przechowuje konta użytkowników, produkty, ceny oraz wpadające zamówienia. PHP łączy się z nią przez plik konfiguracyjny, a przesyłanie informacji o koszyku odbywa się w tle przy użyciu formatu JSON, dzięki czemu strona nie musi się ciągle odświeżać.
+
+Schemat bazy danych (ERD):
+Graficzny schemat relacji bazy danych przedstawiający tabele, typy danych oraz klucze główne i obce znajduje się w plikach projektu.
+ŚCIEŻKA DO PLIKU: /Projekty/Zegowska-Szama-DiagramERD.png
+
+Opis tabel i relacji w bazie danych:
+1. kategoria – Przechowuje kategorie produktów. Pola: id (int, Klucz Główny), nazwa_kategorii (varchar).
+2. produkty – Przechowuje asortyment. Pola: id (int, Klucz Główny), nazwa (varchar), cena (float), kategoria (int, Klucz Obcy łączący z tabelą kategoria), dostępność (int), mnożnik_promocji (float), zdjęcie (varchar).
+3. użytkownik – Przechowuje konta. Pola: id (int, Klucz Główny), mail (varchar), czy_admin (int – flaga uprawnień), token (varchar), szamsy (int – punkty), hasło (varchar).
+4. zamówienia_online – Przechowuje zamówienia uczniów. Pola: id (int, Klucz Główny), numer_zamówienia (varchar), produkt_id (int, Klucz Obcy łączący z tabelą produkty), stan_przygotowania (varchar), użytkownik_id (int, Klucz Obcy łączący z tabelą użytkownik), szczegóły (varchar), ilość (integer).
+
+
+5. OPIS WIDOKÓW (CO WIDZI UCZEŃ)
+----------------------------------------------------------------------
+* Strona główna: Tutaj lądujemy na starcie. Są tu banery, menu, ceny, promocje i ładne menu nawigacyjne na górze.
+* Logowanie i Rejestracja: Proste i czytelne formularze. Jak wpiszesz złe hasło albo zajęty login, strona od razu wyświetli komunikat, co jest nie tak.
+* Koszyk: Podsumowanie zakupów. Widać tu listę wybranych rzeczy, ich ilość, cenę oraz duży przycisk do finalizacji zamówienia.
+* Profil użytkownika: Pokazuje konto ucznia i jego kod QR, który skanuje się w sklepiku, żeby zbierać punkty "szamsy". Ma też szybkie linki do aktywnych zamówień, ustawień i wylogowania. 
+* Panel administratora (Wgląd Admina):  
+
+
+6. INSTRUKCJA OBSŁUGI (JAK KORZYSTAĆ)
+----------------------------------------------------------------------
+Jak założyć konto i wejść:
+Wchodzisz na stronę rejestracji, wpisujesz swój login i hasło, po czym klikasz "Zarejestruj". Potem przechodzisz do strony logowania, wpisujesz swoje dane i zostajesz zalogowany.
+
+Jak zamówić szamę:
+Na stronie głównej przeglądasz jedzenie. Klikasz przycisk "Dodaj do koszyka" przy tym, na co masz ochotę. Licznik na ikonce koszyka na górze strony od razu się zmieni. Potem wchodzisz w koszyk, patrzysz, czy wszystko się zgadza i klika przycisk zamówienia. Idziesz do sklepiku odebrać jedzenie.
+
+Promocje:
+Przecenione jedzenie pojawia się dopiero po zalogowaniu w zakładce "Promocje”
+
+
+7. JAK NAPISANY JEST KOD
+----------------------------------------------------------------------
+
+
+Struktura folderów w projekcie:
+W repozytorium pliki leżą tak:
+
+Projekt-Zegowska-Szama-main/
+│
+├── files/
+│   ├── appleP.png
+│   ├── BANER_LEPSZY.png
+│   ├── blik.png
+│   ├── buła.png
+│   ├── googleP.png
+│   ├── hipekBurger.png
+│   ├── hipekCzips.png
+│   ├── hipekHerbata.png
+│   ├── hipekPicie.png
+│   ├── hipekŻelek.png
+│   ├── home_btn.png
+│   ├── ikona.png
+│   ├── koszyk_btn.png
+│   ├── profile_btn.png
+│   ├── przelewy.png
+│   ├── QR.png
+│   ├── sadR.png
+│   ├── search_btn.png
+│   ├── szams.png
+│   ├── visa.png
+│   └── zeg.png
+│
+├── produkty/
+│   ├── bułka_gołosza.png
+│   ├── bułka_z_masłem.png
+│   ├── bułka_z_serem.png
+│   ├── bułka_z_serem_i_szynką.png
+│   ├── bułka_z_sosem.png
+│   ├── bułka_z_szynką.png
+│   ├── cappuccino.png
+│   ├── cynamonka.png
+│   ├── default.png
+│   ├── double_dog.png
+│   ├── espresso.png
+│   ├── espresso_macchiato.png
+│   ├── góralki.png
+│   ├── harol.png
+│   ├── herbata.png
+│   ├── kawa_biała.png
+│   ├── kawa_czarna.png
+│   ├── knorr.png
+│   ├── latte_macchiato.png
+│   ├── lion.png
+│   ├── lipton_icetea_0,5l.png
+│   ├── lipton_icetea_1,5l.png
+│   ├── mullermilch.png
+│   ├── oblaty.png
+│   ├── paleczki.png
+│   ├── prince_polo.png
+│   ├── sucha_bułka.png
+│   ├── tost_z_masłem.png
+│   ├── tost_z_serem.png
+│   ├── tost_z_szynką.png
+│   ├── tost_z_szynką_i_serem.png
+│   ├── tymbark_karton_1l.png
+│   ├── tymbark_plastik_0,5l.png
+│   ├── tymbark_plastik_2l.png
+│   └── tymbark_szkło_0,25l.png
+│
+├── Projekty/
+│   ├── Podgląd-Desktop.png
+│   ├── Podgląd-Mobile.png
+│   ├── Projekt-Formularz-z-Logowania-Desktop.png
+│   ├── Projekt-Formularz-z-Logowania-Mobile.png
+│   ├── Projekt-Formularz-z-Rejestracji-Desktop.png
+│   ├── Projekt-Formularz-z-Rejestracji-Mobile.png
+│   ├── Projekt-Koszyk-Desktop.png
+│   ├── Projekt-Koszyk-Mobile.png
+│   ├── Projekt-Main-Wylogowany-Mobile.png
+│   ├── Projekt-Main-Zalogowany-Mobile.png
+│   ├── Projekt-Profil-Desktop.png
+│   ├── Projekt-Profil-Mobile.png
+│   └── Zegowska-Szama-DiagramERD.png
+│
+├── src/
+│   ├── app.js
+│   ├── config.php
+│   ├── process_order.php
+│   └── search.js
+│
+├── styles/
+│   ├── style_aside.css
+│   ├── style_basket.css
+│   ├── style_dock.css
+│   ├── style_login.css
+│   ├── style_main.css
+│   ├── style_manage.css
+│   ├── style_profile.css
+│   └── style_settings.css
+│
+├── basket.php
+├── dockingPanel.php
+├── Dokumentacja-Zegowska-Szama.txt
+├── forgotPassword.html
+├── kontakt.html
+├── LICENSE
+├── login.php
+├── main.php
+├── o_szamsach.html
+├── orders.php
+├── polityka_prywatnosci.html
+├── products.php
+├── profile.php
+├── register.php
+├── regulamin.html
+├── settings.php
+├── users.php
+├── yourOrders.php
+├── zegowska_szama.sql
+├── README.md
+└── Zadanie.pdf
+
+
+
+8. HISTORIA ZMIAN I CO DALEJ (ROZWÓJ)
+----------------------------------------------------------------------
+Wersje aplikacji:
+* v1.0.0 (Stan obecny): Wszystko gotowe i gotowe do dalszego udoskonalania. Rejestracja, logowanie, koszyk i baza działają, a zdjęcia poprawnie wyświetlają się w folderach projektu.
+* v0.5.0 (Beta): Połączyliśmy wygląd z bazą danych i przetestowaliśmy przesyłanie formularzy.
+* v0.1.0 (Alfa): Zrobiliśmy same szablony stron w HTML i CSS.
+
+Co można dodać w przyszłości:
+1. Płatności online: Podpięcie pod koszyk szybkich płatności Blikiem albo kartą.
+2. Powiadomienia SMS: System wysyłałby SMS do ucznia z tekstem: "Twoja zapiekanka jest już gotowa do odbioru!".
+3. Statystyki dla sklepiku: Wykresy i raporty dla właściciela, co sprzedaje się najlepiej w danym miesiącu.
