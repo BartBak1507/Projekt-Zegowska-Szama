@@ -2,7 +2,6 @@
 require_once('src/config.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // 1. Aktualizacja liczby szamsów
     if (isset($_POST['update_szamsy']) && isset($_POST['user_id']) && isset($_POST['szamsy'])) {
         $user_id = (int)$_POST['user_id'];
         $szamsy = (int)$_POST['szamsy'];
@@ -13,7 +12,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         mysqli_stmt_execute($stmt);
     }
 
-    // 2. Aktualizacja statusu Admina
     if (isset($_POST['update_admin']) && isset($_POST['user_id'])) {
         $user_id = (int)$_POST['user_id'];
         $czy_admin = isset($_POST['czy_admin']) ? 1 : 0;
@@ -24,22 +22,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         mysqli_stmt_execute($stmt);
     }
 
-    // 3. Usuwanie użytkownika z bazy danych (Nowość!)
     if (isset($_POST['delete_user']) && isset($_POST['user_id'])) {
         $user_id = (int)$_POST['user_id'];
         
-        // Opcjonalne zabezpieczenie: Tutaj możesz sprawdzić, czy $user_id nie jest ID aktualnie zalogowanego admina, np. $_SESSION['user_id']
+        $delete_orders_query = "DELETE FROM zamówienia_online WHERE użytkownik_id = ?";
+        $stmt_orders = mysqli_prepare($mysqli, $delete_orders_query);
+        mysqli_stmt_bind_param($stmt_orders, "i", $user_id);
+        mysqli_stmt_execute($stmt_orders);
+        mysqli_stmt_close($stmt_orders);
+
         $query = "DELETE FROM użytkownik WHERE id = ?";
         $stmt = mysqli_prepare($mysqli, $query);
         mysqli_stmt_bind_param($stmt, "i", $user_id);
         mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
     }
 
     header("Location: users.php");
     exit();
 }
 
-// Pobranie wszystkich użytkowników z bazy
 $query = "SELECT id, nazwa_użytkownika, mail, czy_admin, szamsy FROM użytkownik ORDER BY id ASC";
 $result = mysqli_query($mysqli, $query);
 ?>
@@ -50,6 +52,7 @@ $result = mysqli_query($mysqli, $query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/style_manage.css">
+    <link rel="shortcut icon" href="files/zeg.png" type="image/x-icon">
     <title>Panel Admina - Użytkownicy</title>
 </head>
 <body>

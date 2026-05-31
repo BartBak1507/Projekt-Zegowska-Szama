@@ -1,12 +1,10 @@
 <?php
-// Uruchomienie sesji i podłączenie bazy danych
-require_once('src/config.php'); // Upewnij się, że ścieżka do config.php jest poprawna
+require_once('src/config.php'); 
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Bezpiecznik: Jeśli nie ma ID sesji, wyrzucamy do logowania
 if (!isset($_SESSION['id'])) {
     header("Location: login.php");
     exit();
@@ -14,9 +12,8 @@ if (!isset($_SESSION['id'])) {
 
 $user_id = $_SESSION['id'];
 $message = "";
-$messageType = ""; // 'success' lub 'error'
+$messageType = ""; 
 
-// Pobieranie aktualnych danych użytkownika
 $query = "SELECT nazwa_użytkownika, hasło FROM użytkownik WHERE id = ?";
 $stmt = mysqli_prepare($mysqli, $query);
 mysqli_stmt_bind_param($stmt, "i", $user_id);
@@ -26,14 +23,12 @@ $current_user = mysqli_fetch_assoc($result);
 
 $aktualna_nazwa = $current_user['nazwa_użytkownika'];
 
-// Obsługa formularza po kliknięciu "Zatwierdź zmiany"
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $obecne_haslo = $_POST['obecne_haslo'] ?? '';
     $nowa_nazwa = htmlspecialchars(trim($_POST['nowa_nazwa'] ?? ''), ENT_QUOTES);
     $nowe_haslo = $_POST['nowe_haslo'] ?? '';
     $powtorz_haslo = $_POST['powtorz_haslo'] ?? '';
 
-    // 1. Sprawdzamy, czy podano obecne hasło i czy jest poprawne
     if (empty($obecne_haslo)) {
         $message = "Musisz podać obecne hasło, aby dokonać zmian!";
         $messageType = "error";
@@ -41,15 +36,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $message = "Obecne hasło jest niepoprawne ❌";
         $messageType = "error";
     } else {
-        // Hasło się zgadza, lecimy dalej z weryfikacją zmian
         $update_queries = [];
         $update_params = [];
         $param_types = "";
         $zmiany_wykonane = false;
 
-        // --- ZMIANA NAZWY UŻYTKOWNIKA ---
         if (!empty($nowa_nazwa) && $nowa_nazwa !== $aktualna_nazwa) {
-            // Sprawdzamy czy nowa nazwa nie jest już zajęta
             $check_query = "SELECT id FROM użytkownik WHERE nazwa_użytkownika = ?";
             $check_stmt = mysqli_prepare($mysqli, $check_query);
             mysqli_stmt_bind_param($check_stmt, "s", $nowa_nazwa);
@@ -65,12 +57,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $param_types .= "s";
                 $zmiany_wykonane = true;
                 
-                // Aktualizujemy nazwę do wyświetlania w tym widoku
                 $aktualna_nazwa = $nowa_nazwa; 
             }
         }
 
-        // --- ZMIANA HASŁA ---
         if (!empty($nowe_haslo)) {
             if ($nowe_haslo !== $powtorz_haslo) {
                 $message = "Nowe hasła nie są identyczne!";
@@ -84,7 +74,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
         }
 
-        // --- WYKONANIE ZAPYTANIA DO BAZY ---
         if (empty($message) && $zmiany_wykonane && !empty($update_queries)) {
             $sql = "UPDATE użytkownik SET " . implode(", ", $update_queries) . " WHERE id = ?";
             $update_params[] = $user_id;
@@ -97,7 +86,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $message = "Zmiany zostały pomyślnie zapisane";
                 $messageType = "success";
                 
-                // Aktualizujemy sesję, jeśli nazwa została zmieniona
                 if (in_array("nazwa_użytkownika = ?", $update_queries)) {
                     $_SESSION['nazwa_użytkownika'] = $aktualna_nazwa;
                 }
@@ -119,6 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/style_settings.css">
+    <link rel="shortcut icon" href="files/zeg.png" type="image/x-icon">
     <title>Ustawienia konta - Zegowska Szama</title>
     
 </head>

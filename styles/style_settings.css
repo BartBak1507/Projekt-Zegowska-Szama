@@ -54,7 +54,7 @@ body::-webkit-scrollbar-thumb:hover { background: #910000; }
 .form-group input {
     width: 100%;
     padding: 12px;
-    background-color: var(--bg-dark); /* Ciemne tło inputa */
+    background-color: var(--bg-dark);
     border: 1px solid var(--red);
     border-radius: 10px;
     color: white;
@@ -113,7 +113,6 @@ body::-webkit-scrollbar-thumb:hover { background: #910000; }
 
 .back-link:hover { color: white; }
 
-/* Mobile */
 @media (max-width: 440px) {
     body {
         align-items: flex-start;

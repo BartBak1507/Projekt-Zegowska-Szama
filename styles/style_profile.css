@@ -1,6 +1,4 @@
-/* ==========================================================================
-   GLOBALNE STYLOWANIE ORYGINALNE (KOSZYK / MAIN)
-   ========================================================================== */
+
 html, body {
     margin: 0;
     padding: 0;
@@ -34,12 +32,10 @@ main {
     padding-bottom: 50px;
 }
 
-/* ==========================================================================
-   NOWA SEKCJA ELEMENTÓW PROFILU
-   ========================================================================== */
+
 .profileCard {
     width: 100%;
-    max-width: 440px; /* Szerokość dopasowana do najniższego punktu responsu */
+    max-width: 440px; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -47,7 +43,7 @@ main {
     padding: 0 20px;
 }
 
-/* Awatar */
+
 .avatarSection {
     display: flex;
     flex-direction: column;
@@ -64,11 +60,10 @@ main {
 
 .profileName {
     font-size: 160%;
-    color: #5f5f5f; /* Przygaszony kolor tekstu z makiety */
+    color: #5f5f5f;
     margin: 0;
 }
 
-/* Kod QR */
 .qrSection {
     width: 100%;
     display: flex;
@@ -82,7 +77,6 @@ main {
     object-fit: contain;
 }
 
-/* Przyciski menu - Stan domyślny (PC / duże ekrany) */
 .profileMenu {
     width: 100%;
     display: flex;
@@ -94,12 +88,12 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #2a2a2c; /* Szare tło */
+    background-color: #2a2a2c; 
     color: white;
     text-decoration: none;
     padding: 16px 30px;
-    border: 4px solid #910000; /* Gruba czerwona ramka */
-    border-radius: 30px; /* Pełne zaokrąglenie pigułki */
+    border: 4px solid #910000; 
+    border-radius: 30px; 
     font-size: 150%;
     transition: background-color 0.2s ease;
 }
@@ -186,10 +180,8 @@ footer span { font-weight: bold; color: #910000; }
 }
 
 @media(max-width: 600px) {
-    /* Zachowanie pustej reguły z oryginalnego pliku dla spójności */
 }
 
-/* Średnie ekrany (np. tablety i mniejsze laptopy) */
 @media(max-width: 1000px) {
     header img { width: 50vh; }
     footer { height: 20vh; font-size: 110%; }
@@ -197,26 +189,20 @@ footer span { font-weight: bold; color: #910000; }
     .rights { font-size: 70%; margin-bottom: -5px; padding-bottom: 25px; }
     .rights .dimP { margin-top: -10px; }
 
-    /* Zmniejszamy przyciski profilu dla tabletów */
     .profileBtn {
         padding: 12px 24px;
         font-size: 125%;
-        border-width: 3px; /* Delikatniejsza ramka */
+        border-width: 3px; 
         border-radius: 20px;
     }
     .profileMenu {
-        gap: 15px; /* Mniejsze odstępy między przyciskami */
+        gap: 15px; 
     }
     .userAvatar {
-        width: 100px; /* Lekko mniejszy awatar */
+        width: 100px; 
     }
 }
 
-@media(max-width: 580px) {
-    /* Zachowanie struktury punktu łamania kart z koszyka */
-}
-
-/* Typowe ekrany smartfonów */
 @media(max-width: 440px) {
     header img { width: 100vw; }
     footer { height: 25vh; font-size: 90%; }
@@ -224,10 +210,9 @@ footer span { font-weight: bold; color: #910000; }
     .rights { font-size: 80%; margin-bottom: -10px; padding-bottom: 25px; }
     .rights .dimP { margin-top: -10px; }
 
-    /* Maksymalne dopasowanie przycisków do ekranów mobilnych */
     .profileBtn {
         padding: 10px 20px;
-        font-size: 105%; /* Kompaktowy font dopasowany do przycisków logowania z Twojego maina */
+        font-size: 105%; 
         border-width: 2.5px;
         border-radius: 15px;
     }

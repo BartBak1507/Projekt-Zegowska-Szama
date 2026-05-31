@@ -185,7 +185,6 @@ main {
     box-shadow: 0 0 0 0.25rem rgba(145, 0, 0, 0.25) !important;
 }
 
-/* Styl dla przełącznika (Switch Bootstrapa) */
 .admin-switch {
     background-color: #1c1c1e !important;
     border-color: #444 !important;
@@ -203,7 +202,6 @@ main {
     box-shadow: 0 0 0 0.25rem rgba(145, 0, 0, 0.25) !important;
 }
 
-/* Styl dla guzika usuwania użytkownika */
 .btn-admin-delete-user {
     background-color: #1c1c1e;
     color: #ff4d4d;
@@ -225,7 +223,6 @@ main {
     transform: scale(0.95);
 }
 
-/* Żółty znaczek ostrzegawczy wewnątrz guzika */
 .warning-icon {
     color: #f1c40f;
     font-weight: 900;
@@ -234,7 +231,7 @@ main {
 }
 
 .btn-admin-delete-user:hover .warning-icon {
-    color: white; /* Gdy najeżdżamy myszką, ikonka robi się biała razem z tekstem */
+    color: white; 
 }
 
 .product-box {
@@ -246,7 +243,6 @@ main {
 }
 
 
-/* Karta NOWEGO produktu - teraz z CZERWONĄ PRZERYWANĄ linią i ciemniejszym tłem mini-karty */
 .new-product-box {
     background-color: #1c1c1e !important;
     border: 4px dashed #910000 !important; 
@@ -262,7 +258,6 @@ main {
     letter-spacing: 1px;
 }
 
-/* Stylowe, ciemne inputy idealnie pasujące do całości */
 .custom-input {
     background-color: #1c1c1e !important;
     color: #ffffff !important;
@@ -319,7 +314,6 @@ main {
     margin-top: 40px;
 }
 
-/* Stylizacja elementu blokowego dla odnośnika powrotu */
 .mailBtn.block-btn {
     display: inline-block;
     box-sizing: border-box;

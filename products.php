@@ -1,21 +1,17 @@
 <?php
 require_once('src/config.php');
 
-// 1. OBSŁUGA FORMULARZY (ZAPIS DO BAZY)
-
-// A. Aktualizacja istniejącego produktu
 if (isset($_POST['update_product'])) {
     $product_id = intval($_POST['product_id']);
     $nazwa = mysqli_real_escape_string($mysqli, $_POST['nazwa']);
     $cena = floatval($_POST['cena']);
-    $dostepnosc = intval($_POST['dostepnosc']); // 1 = dostępny, 0 = niedostępny
+    $dostepnosc = intval($_POST['dostepnosc']);
     
-    // Przeliczenie procentu przeceny na mnożnik promocji
     $przecena_procent = floatval($_POST['przecena_procent']);
     if ($przecena_procent > 0 && $przecena_procent <= 100) {
         $mnoznik = (100 - $przecena_procent) / 100;
     } else {
-        $mnoznik = 1.0; // brak promocji, mnożnik równy 1
+        $mnoznik = 1.0; 
     }
 
     $update_query = "UPDATE produkty SET 
@@ -30,13 +26,11 @@ if (isset($_POST['update_product'])) {
     exit;
 }
 
-// B. Dodawanie nowego produktu
 if (isset($_POST['add_product'])) {
     $nazwa = mysqli_real_escape_string($mysqli, $_POST['nazwa']);
     $cena = floatval($_POST['cena']);
     $kategoria_id = intval($_POST['kategoria']);
     
-    // Domyślne wartości z bazy danych
     $zdjecie_default = "default.png";
     $dostepnosc_default = 1;
     $mnoznik_default = 1.0;
@@ -49,7 +43,6 @@ if (isset($_POST['add_product'])) {
     exit;
 }
 
-// 2. POBRANIE PRODUKTÓW Z BAZY
 $products_query = "SELECT * FROM produkty ORDER BY kategoria ASC, nazwa ASC";
 $products_result = mysqli_query($mysqli, $products_query);
 ?>
@@ -61,6 +54,7 @@ $products_result = mysqli_query($mysqli, $products_query);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/style_manage.css"> 
+    <link rel="shortcut icon" href="files/zeg.png" type="image/x-icon">
     <title>Zarządzanie Produktami - Zegowska Szama</title>
 </head>
 <body style="padding-bottom: 120px;">

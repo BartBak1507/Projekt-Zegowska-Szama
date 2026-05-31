@@ -2,7 +2,6 @@
 require_once('src/config.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Aktualizacja stanu przygotowania zamówienia
     if (isset($_POST['update_status']) && isset($_POST['numer_zamowienia']) && isset($_POST['new_status'])) {
         $nr = $_POST['numer_zamowienia'];
         $status = $_POST['new_status'];
@@ -12,7 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         mysqli_stmt_execute($stmt_update);
     } 
     
-    // Usunięcie całego zamówienia z bazy
     if (isset($_POST['delete_order']) && isset($_POST['numer_zamowienia'])) {
         $nr = $_POST['numer_zamowienia'];
         $query_delete = "DELETE FROM zamówienia_online WHERE numer_zamowienia = ?";
@@ -25,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit();
 }
 
-// Pobieranie danych z bazy
 $query = "SELECT zo.numer_zamowienia, zo.data_zamowienia, zo.szczegóły, zo.ilość, zo.stan_przygotowania, p.nazwa, u.nazwa_użytkownika
           FROM zamówienia_online zo
           JOIN produkty p ON zo.produkt_id = p.id
@@ -62,6 +59,7 @@ if ($result) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles/style_manage.css">
+    <link rel="shortcut icon" href="files/zeg.png" type="image/x-icon">
     <title>Panel Admina - Zegowska Szama</title>
 </head>
 <body>

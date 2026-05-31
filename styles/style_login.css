@@ -156,11 +156,8 @@ color: white;
     font-weight: lighter;
     background-color: #910000;
     
-    /* 1. Używamy 'vw' (viewport width) dla czcionki, ale z funkcją clamp */
-    /* clamp(minimum, preferowana, maksimum) - dzięki temu nie będzie ani za mały, ani za wielki */
     font-size: clamp(0.9rem, 3.5vw, 1.8rem); 
     
-    /* 2. Padding w 'em' uzależnia odstępy od wielkości tekstu */
     padding: 0.8em 1.5em; 
     
     border-radius: 15px;
@@ -168,15 +165,13 @@ color: white;
     margin: 5px;
     transition: all 0.3s ease;
     
-    /* 3. Klucz do sukcesu: ograniczamy szerokość do 90% ekranu i pozwalamy zawijać tekst */
     display: inline-block;
     max-width: 90%; 
-    word-break: break-all; /* Gdyby mail był za długi, złamie go do nowej linii */
+    word-break: break-all; 
     box-sizing: border-box;
 
     white-space: nowrap; 
     
-    /* Ale żeby nie wystawał poza ekran, dodajemy bezpiecznik */
     max-width: 95%;
     display: inline-block;
     overflow: hidden;

@@ -1,6 +1,4 @@
-/* ==========================================================================
-   GLOBALNE STYLOWANIE STRONY (IDENTYCZNIE JAK W KOSZYKU)
-   ========================================================================== */
+
 html, body {
     margin: 0;
     padding: 0;
@@ -10,15 +8,11 @@ html, body {
     font-family: Arial, sans-serif;
 }
 
-/* Pasek przewijania spójny z resztą aplikacji */
 body::-webkit-scrollbar { width: 12px; height: 12px; }
 body::-webkit-scrollbar-track { background: #1a1a1a; }
 body::-webkit-scrollbar-thumb { background: #444; border-radius: 6px; border: 2px solid #1a1a1a; }
 body::-webkit-scrollbar-thumb:hover { background: #910000; }
 
-/* ==========================================================================
-   NAGŁÓWEK (BANER JEDEN DO JEDNEGO)
-   ========================================================================== */
 header {
     width: 100%;
     display: flex;
@@ -31,9 +25,7 @@ header img {
     width: 25vw;
 }
 
-/* ==========================================================================
-   SEKCJA TREŚCI POBOCZNYCH (.regulations)
-   ========================================================================== */
+
 .regulations {
     max-width: 800px;
     width: 90%;
@@ -43,7 +35,6 @@ header img {
     font-size: 110%;
 }
 
-/* Tytuły podstron */
 .regulations h1 {
     font-size: 220%;
     font-weight: bold;
@@ -56,7 +47,6 @@ header img {
     color: #910000;
 }
 
-/* Śródtytuły / Sekcje paragrafów */
 .regulations h3 {
     font-size: 140%;
     color: #910000;
@@ -65,7 +55,6 @@ header img {
     margin-bottom: 15px;
 }
 
-/* Tekst i wyróżnienia */
 .regulations p {
     color: #e0e0e0;
     margin-bottom: 15px;
@@ -76,7 +65,6 @@ header img {
     font-size: 105%;
 }
 
-/* Linie podziału */
 .regulations hr {
     border: 0;
     height: 1px;
@@ -85,9 +73,7 @@ header img {
     opacity: 0.5;
 }
 
-/* ==========================================================================
-   LISTY I PUNKTORY (ZASADY, PUNKTY, REGULAMIN)
-   ========================================================================== */
+
 .regulations ul, 
 .regulations ol {
     margin-bottom: 25px;
@@ -103,7 +89,6 @@ header img {
     color: #ffffff;
 }
 
-/* Styl dla regulaminu (§1, §2 itd.) */
 .regulations ol {
     list-style-type: decimal;
 }
@@ -112,7 +97,6 @@ header img {
     list-style-type: square;
 }
 
-/* Podpis na końcu regulaminu */
 .regulations p strong {
     display: block;
     margin-top: 40px;
@@ -120,10 +104,6 @@ header img {
     font-size: 120%;
 }
 
-/* ==========================================================================
-   DODATKOWE ELEMENTY (STRONA KONTAKT)
-   ========================================================================== */
-/* Box kontaktowy */
 .contact-box {
     margin: 35px 0;
     border: 2px solid #2a2a2c;
@@ -134,7 +114,6 @@ header img {
     transform: scale(1.01);
 }
 
-/* Przycisk mailowy */
 .mailBtn {
     background-color: #910000;
     color: white !important;
@@ -153,9 +132,6 @@ header img {
     box-shadow: 0 6px 20px rgba(145, 0, 0, 0.5);
 }
 
-/* ==========================================================================
-   RESPONSYWNOŚĆ (MEDIA QUERIES)
-   ========================================================================== */
 @media(max-width: 1200px) {
     header img { width: 42vw; }
     .regulations { font-size: 105%; }
