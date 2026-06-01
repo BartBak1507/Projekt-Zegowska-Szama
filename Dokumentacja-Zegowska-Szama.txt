@@ -18,23 +18,55 @@ Zegowska-szama to strona internetowa zrobiona specjalnie dla naszej społecznoś
 Głównym plusem aplikacji jest to, że pozwala zamawiać jedzenie online ("szamę") jeszcze przed dzwonkiem na przerwę. Dzięki temu nie trzeba stać w wielkich kolejkach pod okienkiem, a obsługa sklepiku wie wcześniej, ile buł czy drożdżówek ma przygotować. Strona działa i na komputerach, i na smartfonach, a do tego ma ciemny motyw, żeby nie raziła w oczy na lekcjach.
 
 
-3. CO SYSTEM MUSI ROBIĆ (WYMAGANIA)
-----------------------------------------------------------------------
-To, co po prostu działa w aplikacji (Funkcje):
-* Zakładanie konta i logowanie: Każdy może założyć profil. System sprawdza, czy login nie jest zajęty, a hasło jest bezpiecznie szyfrowane. Są dwa typy kont: zwykły Uczeń oraz Admin (dla obsługi sklepiku).
-* Profil użytkownika: Po zalogowaniu można edytować swoje dane albo zmienić hasło.
-* Przeglądanie jedzenia: Na stronie głównej widać całe menu z podziałem na kategorie, ceny i aktualne przeceny.
-* Koszyk: Standardowy koszyk zakupowy. Dodajesz rzeczy, zmieniasz ich ilość albo usuwasz, jak się rozmyślisz. Wszystko liczy się na bieżąco.
-* Składanie zamówień: Klikasz "Zamów" i informacja o zakupach leci prosto do bazy danych.
-* Panel dla sklepiku (Admina): Osoba w sklepiku widzi listę wszystkich zamówień, które wpadły od uczniów, i może zarządzać promocjami.
+3. SPECYFIKACJA WYMAGAŃ SYSTEMOWYCH
+----------------------------------------------------------------------1
+A. WYMAGAŃ FUNKCJONALNE:
 
-To, jak aplikacja została wykonana:
-* Wygląd: Strona idealnie dopasowuje się do ekranu telefonu, tabletu i komputera (użyliśmy Bootstrapa 5).
-* Szybkość: Wszystko ładuje się szybko, a formularze PHP sprawnie przesyłają dane.
-* Bezpieczeństwo: Hasła w bazie danych nie są zapisane czystym tekstem, tylko zaszyfrowane przez funkcję password_hash. Dodatkowo kod chroni przed wstrzykiwaniem złośliwego kodu do bazy (SQL Injection).
-* Technologie: System działa na bazie języka PHP (Backend) połączonego z internetową bazą danych MySQL/MariaDB.
-* Narzędzia: Do lokalnego uruchomienia i przetestowania kodu oraz bazy użyliśmy środowiska XAMPP, a schemat relacji tabel został zaprojektowany w programie DBDesigner. 
-* Kompatybilność i przeglądarki: Aplikacja została zoptymalizowana i przetestowana pod kątem poprawnego działania na najnowszych wersjach przeglądarek: Google Chrome, Microsoft Edge, Mozilla Firefox, Safari, Brave.
+* Logowanie i Rejestracja (Zarządzanie kontem):
+  - System umożliwia założenie nowego konta użytkownika (Ucznia) poprzez unikalny login (adres e-mail) oraz bezpieczne hasło.
+  - System waliduje wprowadzane dane w formularzach i w przypadku błędu (np. zajęty login, błędne hasło) zwraca czytelny komunikat.
+  - System rozróżnia uprawnienia użytkowników na dwa poziomy: zwykły Uczeń oraz Administrator (Admin).
+
+* Profil użytkownika (Dla Ucznia):
+  - Możliwość edycji danych profilowych oraz bezpiecznej zmiany hasła z poziomu dedykowanego widoku ustawień.
+  - Generowanie unikalnego kodu QR powiązanego z kontem użytkownika, służącego do skanowania w sklepiku fizycznym w celu naliczania punktów lojalnościowych ("szamsów").
+  - Stały podgląd aktualnego stanu konta punktowego oraz historii aktywnych zamówień.
+
+* Przeglądanie asortymentu i Promocje:
+  - Dynamiczne wyświetlanie menu produktowego na stronie głównej z uwzględnieniem kategorii, aktualnych cen oraz zdjęć poglądowych.
+  - Dostęp do specjalnych, spersonalizowanych przecen i ofert promocyjnych po poprawnym zalogowaniu się do systemu.
+
+* Koszyk zakupowy i Zamówienia:
+  - Możliwość dodawania produktów do koszyka (bez przeładowania strony), zmiany ich ilości lub całkowitego usunięcia pozycji.
+  - Automatyczne przeliczanie sumy zamówienia na bieżąco w formacie JSON.
+  - Finalizacja zakupów i przesyłanie informacji o gotowym zamówieniu bezpośrednio do bazy danych (rejestracja numeru zamówienia, daty, godziny oraz statusu).
+
+* Panel Zarządzania (Dla Administratora):
+  - Zarządzanie zamówieniami: Podgląd wszystkich zamówień od uczniów na żywo z opcją zmiany ich statusu lub usunięcia.
+  - Zarządzanie użytkownikami: Możliwość ręcznej modyfikacji punktów ("szamsów"), nadawania/odbierania praw administratora oraz usuwania kont.
+  - Zarządzanie produktami: Możliwość dodawania, edycji cen, zmiany nazw, włączania/wyłączania dostępności towaru oraz nakładania procentowych rabatów.
+
+
+B. WYMAGANIA NIEFUNKCJONALNE:
+
+* Responsywność i Interfejs:
+  - Interfejs użytkownika (UI) musi w pełni dostosowywać się do rozdzielczości ekranu urządzeń mobilnych (smartfony, tablety) oraz desktopowych (komputery) za pomocą frameworka Bootstrap 5.
+  - System posiada domyślny, nowoczesny "ciemny motyw", zoptymalizowany pod kątem komfortu użytkowania w warunkach szkolnych.
+
+* Bezpieczeństwo danych:
+  - Bezpieczeństwo haseł: Hasła użytkowników nie mogą być przechowywane w bazie danych w postaci czystego tekstu. Obowiązkowe jest stosowanie bezpiecznego hashowania jednostronnego za pomocą funkcji password_hash().
+  - Ochrona bazy danych: Kod aplikacji musi stosować mechanizmy zabezpieczające przed atakami typu SQL Injection (wstrzykiwanie kodu) oraz chronić sesje przed nieuprawnionym dostępem.
+
+* Wydajność i Asynchroniczność:
+  - System musi przetwarzać zapytania formularzy w sposób płynny, a operacje na koszyku zakupowym powinny wykonywać się asynchronicznie za pomocą języka JavaScript, aby uniknąć zbędnego odświeżania całej strony.
+
+* Kompatybilność i przeglądarki:
+  - Aplikacja została zoptymalizowana i przetestowana pod kątem poprawnego działania na najnowszych wersjach przeglądarek: Google Chrome, Microsoft Edge, Mozilla Firefox, Safari oraz Brave (zarówno na systemach desktopowych, jak i mobilnych Android/iOS).
+
+* Architektura i Środowisko:
+  - Kod backendowy oparty na architekturze klient-serwer z wykorzystaniem języka PHP oraz relacyjnej bazy danych MySQL/MariaDB.
+  - Środowiskiem uruchomieniowym dla celów deweloperskich i testowych jest pakiet XAMPP (Apache + MySQL).
+
 
 4. OPIS TECHNICZNY (JAK TO JEST ZROBIONE)
 ----------------------------------------------------------------------
