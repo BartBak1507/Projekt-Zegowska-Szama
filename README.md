@@ -2,8 +2,7 @@
 
 Nowoczesna aplikacja webowa stworzona na rzecz projektu szkolnego, umożliwiająca wygodne przeglądanie asortymentu oraz zamawianie jedzenia online w sklepiku szkolnym. Projekt oferuje pełną responsywność, intuicyjny interfejs oraz wsparcie dla ciemnego motywu.
 
-**🌐 Zobacz aplikację na żywo:** [zegowska-szama.gt.tc]([[https://zegowska-szama.gt.tc](https://zegowska-szama.infinityfreeapp.com/)](https://zegowska-szama.infinityfreeapp.com/))
-
+**🌐 Zobacz aplikację na żywo:** [zegowska-szama.infinityfreeapp.com](https://zegowska-szama.infinityfreeapp.com/)
 ---
 
 ## Podgląd projektu
